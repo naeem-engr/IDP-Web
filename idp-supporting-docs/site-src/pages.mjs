@@ -972,7 +972,7 @@ function renderLandingPage(helpers) {
   return `
     <header class="main-header">
       <div class="hero-content">
-        <h1>One Identity Across Every App</h1>
+        <h1>One Identity for Every<br>App and Service</h1>
         <p>
           OAuth2, OpenID Connect, RBAC,<br>
           and User Management, built from real-world experience,<br>
@@ -1723,7 +1723,7 @@ const docsPages = createDocsPages();
 export const pages = [
   {
     outputPath: ROUTES.home,
-    title: "Enterprise Identity Platform for B2B SaaS",
+    title: "One Identity Across Every App",
     bodyClass: "landing-page",
     activeNav: null,
     brandLogo: "tokentresor-tt-lock.svg",
