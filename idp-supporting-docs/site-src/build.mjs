@@ -26,7 +26,7 @@ const generatedArtifacts = [
 
 const staticArtifacts = [
   "assets",
-  "Banner.svg",
+  "Banner.png",
   "Auth Code Flow.png",
   "Device Flow.png",
   "Integration Workflow.png",
