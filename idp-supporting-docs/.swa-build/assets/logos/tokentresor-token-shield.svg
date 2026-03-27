@@ -1,0 +1,12 @@
+<svg width="230" height="44" viewBox="0 0 230 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tsg" x1="4" y1="5" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#1E3A8A"/>
+    </linearGradient>
+  </defs>
+  <path d="M20 5L34 10.5V20.5C34 27.9 28.8 34.2 20 37.2C11.2 34.2 6 27.9 6 20.5V10.5L20 5Z" fill="url(#tsg)"/>
+  <circle cx="20" cy="21" r="8.2" stroke="#14B8A6" stroke-width="3" fill="none"/>
+  <line x1="12.4" y1="13.4" x2="27.6" y2="28.6" stroke="#F59E0B" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="48" y="27" fill="#0F172A" font-size="19" font-family="Segoe UI, Arial, sans-serif" font-weight="700">TokenTresor</text>
+</svg>
