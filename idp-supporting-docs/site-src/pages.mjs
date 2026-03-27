@@ -972,7 +972,7 @@ function renderLandingPage(helpers) {
   return `
     <header class="main-header">
       <div class="hero-content">
-        <h1>One Identity for Every<br>App and Service</h1>
+        <h1>One Identity Across Every App</h1>
         <p>
           OAuth2, OpenID Connect, RBAC,<br>
           and User Management, built from real-world experience,<br>
