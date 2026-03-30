@@ -49,6 +49,7 @@ a * {
 .top-nav .nav-inner {
   max-width: 1100px;
   margin: 0 auto;
+  height: 44px;
   padding: 10px 20px 10px 30px;
   display: flex;
   justify-content: space-between;
@@ -65,7 +66,7 @@ a * {
 .top-nav .brand img {
   display: block;
   width: auto;
-  height: 44px;
+  height: 32px;
 }
 
 .top-nav .nav-links {
