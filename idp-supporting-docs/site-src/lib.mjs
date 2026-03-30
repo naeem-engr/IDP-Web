@@ -27,7 +27,7 @@ function relativePagePath(fromFile, toFile) {
 }
 
 function renderNav(page) {
-  const logoFile = page.brandLogo ?? "tokentresor-wordmark-core.svg";
+  const logoFile = page.brandLogo ?? "TokenIDP.svg";
   const homeHref = relativePagePath(page.outputPath, "index.html");
   const docsHref = relativePagePath(page.outputPath, "docs/index.html");
   const blogsHref = relativePagePath(page.outputPath, "blogs/index.html");

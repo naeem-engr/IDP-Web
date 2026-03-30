@@ -99,6 +99,10 @@ const artifactsToCopy = [...generatedArtifacts, ...staticArtifacts];
 fs.mkdirSync(deployDir, { recursive: true });
 
 for (const artifact of artifactsToCopy) {
+  fs.rmSync(path.join(deployDir, artifact), { recursive: true, force: true });
+}
+
+for (const artifact of artifactsToCopy) {
   copyArtifact(siteRoot, deployDir, artifact);
 }
 

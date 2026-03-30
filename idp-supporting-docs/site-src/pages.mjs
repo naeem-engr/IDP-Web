@@ -1726,7 +1726,7 @@ export const pages = [
     title: "One Identity Across Every App",
     bodyClass: "landing-page",
     activeNav: null,
-    brandLogo: "tokentresor-tt-lock.svg",
+    brandLogo: "TokenIDP.svg",
     render: renderLandingPage,
     extraScripts: () => [landingPageScript()],
   },
