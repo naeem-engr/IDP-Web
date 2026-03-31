@@ -126,96 +126,36 @@ function renderPlaceholderGraphic(label, modifierClass = "") {
 
 function renderAdminCarouselSlide(slide, index) {
   return `
-          <article class="admin-slide admin-slide--${slide.theme}${index === 0 ? " is-active" : ""}"${index === 0 ? "" : " hidden"}>
-            <div class="admin-slide-visual">
-              <div class="admin-slide-heading">
-                <span>${slide.kicker}</span>
-                <h3>${slide.title}</h3>
-              </div>
-              <div class="admin-slide-frame" aria-hidden="true">
-                <div class="admin-slide-sidebar">
-                  <span class="admin-ui-badge admin-ui-badge--wide"></span>
-                  <span class="admin-ui-badge"></span>
-                  <span class="admin-ui-badge"></span>
-                  <span class="admin-ui-badge"></span>
-                </div>
-                <div class="admin-slide-panel">
-                  <div class="admin-slide-topbar">
-                    <span class="admin-ui-pill admin-ui-pill--short"></span>
-                    <span class="admin-ui-pill"></span>
-                  </div>
-                  <div class="admin-slide-stats">
-                    <span class="admin-ui-card"></span>
-                    <span class="admin-ui-card admin-ui-card--accent"></span>
-                    <span class="admin-ui-card"></span>
-                  </div>
-                  <div class="admin-slide-dashboard">
-                    <div class="admin-slide-chart">
-                      <span class="admin-line admin-line-1"></span>
-                      <span class="admin-line admin-line-2"></span>
-                      <span class="admin-line admin-line-3"></span>
-                    </div>
-                    <div class="admin-slide-stack">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                  </div>
-                  <div class="admin-slide-table">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="admin-slide-detail" aria-hidden="true">
-              <div class="admin-slide-detail-shell">
-                <span class="admin-detail-tag"></span>
-                <span class="admin-detail-title"></span>
-                <div class="admin-detail-grid">
-                  <span class="admin-detail-card admin-detail-card--accent"></span>
-                  <span class="admin-detail-card"></span>
-                </div>
-                <div class="admin-detail-quote">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-                <div class="admin-detail-footer">
-                  <span class="admin-detail-avatar"></span>
-                  <div class="admin-detail-meta">
-                    <span></span>
-                    <span></span>
-                  </div>
-                </div>
-              </div>
+          <article class="admin-slide">
+            <img
+              class="admin-slide-image"
+              src="${slide.image}"
+              alt="${slide.alt}"
+              ${index === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}
+            />
+            <div class="admin-slide-heading">
+              <h3>${slide.title}</h3>
             </div>
           </article>`;
 }
 
 function landingPageScript() {
   return `document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+  const track = carousel.querySelector(".admin-carousel-track");
   const slides = Array.from(carousel.querySelectorAll(".admin-slide"));
   const dots = Array.from(carousel.querySelectorAll(".carousel-dot"));
   const prev = carousel.querySelector("[data-carousel-prev]");
   const next = carousel.querySelector("[data-carousel-next]");
   let index = 0;
+  let autoplayId = null;
 
-  if (!slides.length) {
+  if (!slides.length || !track) {
     return;
   }
 
   const show = (nextIndex) => {
     index = (nextIndex + slides.length) % slides.length;
-
-    slides.forEach((slide, slideIndex) => {
-      const active = slideIndex === index;
-      slide.classList.toggle("is-active", active);
-      slide.hidden = !active;
-    });
+    track.style.transform = \`translateX(-\${index * 100}%)\`;
 
     dots.forEach((dot, dotIndex) => {
       const active = dotIndex === index;
@@ -224,13 +164,42 @@ function landingPageScript() {
     });
   };
 
-  prev?.addEventListener("click", () => show(index - 1));
-  next?.addEventListener("click", () => show(index + 1));
-  dots.forEach((dot, dotIndex) => {
-    dot.addEventListener("click", () => show(dotIndex));
+  const stopAutoplay = () => {
+    if (autoplayId !== null) {
+      clearInterval(autoplayId);
+      autoplayId = null;
+    }
+  };
+
+  const startAutoplay = () => {
+    stopAutoplay();
+    autoplayId = setInterval(() => show(index + 1), 5500);
+  };
+
+  prev?.addEventListener("click", () => {
+    show(index - 1);
+    startAutoplay();
   });
 
+  next?.addEventListener("click", () => {
+    show(index + 1);
+    startAutoplay();
+  });
+
+  dots.forEach((dot, dotIndex) => {
+    dot.addEventListener("click", () => {
+      show(dotIndex);
+      startAutoplay();
+    });
+  });
+
+  carousel.addEventListener("mouseenter", stopAutoplay);
+  carousel.addEventListener("mouseleave", startAutoplay);
+  carousel.addEventListener("focusin", stopAutoplay);
+  carousel.addEventListener("focusout", startAutoplay);
+
   show(0);
+  startAutoplay();
 });`;
 }
 
@@ -985,39 +954,22 @@ function renderLandingPage(helpers) {
   const deviceFlowDiagram = helpers.relativePath("Device Flow.png");
   const adminSlides = [
     {
+      title: "Login",
+      image:
+        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
+      alt: "Login screen showcase",
+    },
+    {
       title: "Dashboard",
-      kicker: "Live overview",
-      theme: "dashboard",
+      image:
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80",
+      alt: "Dashboard screen showcase",
     },
     {
-      title: "Applications",
-      kicker: "Client registry",
-      theme: "applications",
-    },
-    {
-      title: "Tenant Management",
-      kicker: "Workspace controls",
-      theme: "tenants",
-    },
-    {
-      title: "User Management",
-      kicker: "Identity directory",
-      theme: "users",
-    },
-    {
-      title: "Roles & Permissions",
-      kicker: "Access modeling",
-      theme: "roles",
-    },
-    {
-      title: "MFA Policies",
-      kicker: "Security controls",
-      theme: "mfa",
-    },
-    {
-      title: "External Providers",
-      kicker: "Federation setup",
-      theme: "providers",
+      title: "Application Setup",
+      image:
+        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80",
+      alt: "Application setup screen showcase",
     },
   ];
 
@@ -1223,7 +1175,9 @@ ${[
         </button>
         <div class="admin-carousel card">
           <div class="admin-carousel-viewport">
+            <div class="admin-carousel-track">
 ${adminSlides.map(renderAdminCarouselSlide).join("\n")}
+            </div>
           </div>
           <div class="carousel-dots">
 ${adminSlides
