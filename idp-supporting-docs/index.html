@@ -300,140 +300,336 @@
         Operate tenants, applications, users, and policy settings through a
         central management interface built for support teams and platform owners.
       </p>
-      <div class="admin-carousel card" data-carousel>
-        <div class="admin-carousel-toolbar">
-          <h3>Portal Screens</h3>
-          <div class="carousel-controls">
-            <button class="carousel-control" type="button" data-carousel-prev aria-label="Previous slide">
-              Prev
-            </button>
-            <button class="carousel-control" type="button" data-carousel-next aria-label="Next slide">
-              Next
-            </button>
+      <div class="admin-carousel-shell" data-carousel>
+        <button class="carousel-control carousel-control-arrow" type="button" data-carousel-prev aria-label="Previous slide">
+          <span aria-hidden="true">&#8249;</span>
+        </button>
+        <div class="admin-carousel card">
+          <div class="admin-carousel-viewport">
+
+          <article class="admin-slide admin-slide--dashboard is-active">
+            <div class="admin-slide-visual">
+              <div class="admin-slide-heading">
+                <span>Live overview</span>
+                <h3>Dashboard</h3>
+              </div>
+              <div class="admin-slide-frame" aria-hidden="true">
+                <div class="admin-slide-sidebar">
+                  <span class="admin-ui-badge admin-ui-badge--wide"></span>
+                  <span class="admin-ui-badge"></span>
+                  <span class="admin-ui-badge"></span>
+                  <span class="admin-ui-badge"></span>
+                </div>
+                <div class="admin-slide-panel">
+                  <div class="admin-slide-topbar">
+                    <span class="admin-ui-pill admin-ui-pill--short"></span>
+                    <span class="admin-ui-pill"></span>
+                  </div>
+                  <div class="admin-slide-stats">
+                    <span class="admin-ui-card"></span>
+                    <span class="admin-ui-card admin-ui-card--accent"></span>
+                    <span class="admin-ui-card"></span>
+                  </div>
+                  <div class="admin-slide-dashboard">
+                    <div class="admin-slide-chart">
+                      <span class="admin-line admin-line-1"></span>
+                      <span class="admin-line admin-line-2"></span>
+                      <span class="admin-line admin-line-3"></span>
+                    </div>
+                    <div class="admin-slide-stack">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  <div class="admin-slide-table">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="admin-slide admin-slide--applications" hidden>
+            <div class="admin-slide-visual">
+              <div class="admin-slide-heading">
+                <span>Client registry</span>
+                <h3>Applications</h3>
+              </div>
+              <div class="admin-slide-frame" aria-hidden="true">
+                <div class="admin-slide-sidebar">
+                  <span class="admin-ui-badge admin-ui-badge--wide"></span>
+                  <span class="admin-ui-badge"></span>
+                  <span class="admin-ui-badge"></span>
+                  <span class="admin-ui-badge"></span>
+                </div>
+                <div class="admin-slide-panel">
+                  <div class="admin-slide-topbar">
+                    <span class="admin-ui-pill admin-ui-pill--short"></span>
+                    <span class="admin-ui-pill"></span>
+                  </div>
+                  <div class="admin-slide-stats">
+                    <span class="admin-ui-card"></span>
+                    <span class="admin-ui-card admin-ui-card--accent"></span>
+                    <span class="admin-ui-card"></span>
+                  </div>
+                  <div class="admin-slide-dashboard">
+                    <div class="admin-slide-chart">
+                      <span class="admin-line admin-line-1"></span>
+                      <span class="admin-line admin-line-2"></span>
+                      <span class="admin-line admin-line-3"></span>
+                    </div>
+                    <div class="admin-slide-stack">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  <div class="admin-slide-table">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="admin-slide admin-slide--tenants" hidden>
+            <div class="admin-slide-visual">
+              <div class="admin-slide-heading">
+                <span>Workspace controls</span>
+                <h3>Tenant Management</h3>
+              </div>
+              <div class="admin-slide-frame" aria-hidden="true">
+                <div class="admin-slide-sidebar">
+                  <span class="admin-ui-badge admin-ui-badge--wide"></span>
+                  <span class="admin-ui-badge"></span>
+                  <span class="admin-ui-badge"></span>
+                  <span class="admin-ui-badge"></span>
+                </div>
+                <div class="admin-slide-panel">
+                  <div class="admin-slide-topbar">
+                    <span class="admin-ui-pill admin-ui-pill--short"></span>
+                    <span class="admin-ui-pill"></span>
+                  </div>
+                  <div class="admin-slide-stats">
+                    <span class="admin-ui-card"></span>
+                    <span class="admin-ui-card admin-ui-card--accent"></span>
+                    <span class="admin-ui-card"></span>
+                  </div>
+                  <div class="admin-slide-dashboard">
+                    <div class="admin-slide-chart">
+                      <span class="admin-line admin-line-1"></span>
+                      <span class="admin-line admin-line-2"></span>
+                      <span class="admin-line admin-line-3"></span>
+                    </div>
+                    <div class="admin-slide-stack">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  <div class="admin-slide-table">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="admin-slide admin-slide--users" hidden>
+            <div class="admin-slide-visual">
+              <div class="admin-slide-heading">
+                <span>Identity directory</span>
+                <h3>User Management</h3>
+              </div>
+              <div class="admin-slide-frame" aria-hidden="true">
+                <div class="admin-slide-sidebar">
+                  <span class="admin-ui-badge admin-ui-badge--wide"></span>
+                  <span class="admin-ui-badge"></span>
+                  <span class="admin-ui-badge"></span>
+                  <span class="admin-ui-badge"></span>
+                </div>
+                <div class="admin-slide-panel">
+                  <div class="admin-slide-topbar">
+                    <span class="admin-ui-pill admin-ui-pill--short"></span>
+                    <span class="admin-ui-pill"></span>
+                  </div>
+                  <div class="admin-slide-stats">
+                    <span class="admin-ui-card"></span>
+                    <span class="admin-ui-card admin-ui-card--accent"></span>
+                    <span class="admin-ui-card"></span>
+                  </div>
+                  <div class="admin-slide-dashboard">
+                    <div class="admin-slide-chart">
+                      <span class="admin-line admin-line-1"></span>
+                      <span class="admin-line admin-line-2"></span>
+                      <span class="admin-line admin-line-3"></span>
+                    </div>
+                    <div class="admin-slide-stack">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  <div class="admin-slide-table">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="admin-slide admin-slide--roles" hidden>
+            <div class="admin-slide-visual">
+              <div class="admin-slide-heading">
+                <span>Access modeling</span>
+                <h3>Roles & Permissions</h3>
+              </div>
+              <div class="admin-slide-frame" aria-hidden="true">
+                <div class="admin-slide-sidebar">
+                  <span class="admin-ui-badge admin-ui-badge--wide"></span>
+                  <span class="admin-ui-badge"></span>
+                  <span class="admin-ui-badge"></span>
+                  <span class="admin-ui-badge"></span>
+                </div>
+                <div class="admin-slide-panel">
+                  <div class="admin-slide-topbar">
+                    <span class="admin-ui-pill admin-ui-pill--short"></span>
+                    <span class="admin-ui-pill"></span>
+                  </div>
+                  <div class="admin-slide-stats">
+                    <span class="admin-ui-card"></span>
+                    <span class="admin-ui-card admin-ui-card--accent"></span>
+                    <span class="admin-ui-card"></span>
+                  </div>
+                  <div class="admin-slide-dashboard">
+                    <div class="admin-slide-chart">
+                      <span class="admin-line admin-line-1"></span>
+                      <span class="admin-line admin-line-2"></span>
+                      <span class="admin-line admin-line-3"></span>
+                    </div>
+                    <div class="admin-slide-stack">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  <div class="admin-slide-table">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="admin-slide admin-slide--mfa" hidden>
+            <div class="admin-slide-visual">
+              <div class="admin-slide-heading">
+                <span>Security controls</span>
+                <h3>MFA Policies</h3>
+              </div>
+              <div class="admin-slide-frame" aria-hidden="true">
+                <div class="admin-slide-sidebar">
+                  <span class="admin-ui-badge admin-ui-badge--wide"></span>
+                  <span class="admin-ui-badge"></span>
+                  <span class="admin-ui-badge"></span>
+                  <span class="admin-ui-badge"></span>
+                </div>
+                <div class="admin-slide-panel">
+                  <div class="admin-slide-topbar">
+                    <span class="admin-ui-pill admin-ui-pill--short"></span>
+                    <span class="admin-ui-pill"></span>
+                  </div>
+                  <div class="admin-slide-stats">
+                    <span class="admin-ui-card"></span>
+                    <span class="admin-ui-card admin-ui-card--accent"></span>
+                    <span class="admin-ui-card"></span>
+                  </div>
+                  <div class="admin-slide-dashboard">
+                    <div class="admin-slide-chart">
+                      <span class="admin-line admin-line-1"></span>
+                      <span class="admin-line admin-line-2"></span>
+                      <span class="admin-line admin-line-3"></span>
+                    </div>
+                    <div class="admin-slide-stack">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  <div class="admin-slide-table">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="admin-slide admin-slide--providers" hidden>
+            <div class="admin-slide-visual">
+              <div class="admin-slide-heading">
+                <span>Federation setup</span>
+                <h3>External Providers</h3>
+              </div>
+              <div class="admin-slide-frame" aria-hidden="true">
+                <div class="admin-slide-sidebar">
+                  <span class="admin-ui-badge admin-ui-badge--wide"></span>
+                  <span class="admin-ui-badge"></span>
+                  <span class="admin-ui-badge"></span>
+                  <span class="admin-ui-badge"></span>
+                </div>
+                <div class="admin-slide-panel">
+                  <div class="admin-slide-topbar">
+                    <span class="admin-ui-pill admin-ui-pill--short"></span>
+                    <span class="admin-ui-pill"></span>
+                  </div>
+                  <div class="admin-slide-stats">
+                    <span class="admin-ui-card"></span>
+                    <span class="admin-ui-card admin-ui-card--accent"></span>
+                    <span class="admin-ui-card"></span>
+                  </div>
+                  <div class="admin-slide-dashboard">
+                    <div class="admin-slide-chart">
+                      <span class="admin-line admin-line-1"></span>
+                      <span class="admin-line admin-line-2"></span>
+                      <span class="admin-line admin-line-3"></span>
+                    </div>
+                    <div class="admin-slide-stack">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  <div class="admin-slide-table">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
           </div>
-        </div>
-        <div class="admin-carousel-viewport">
-
-          <article class="admin-slide is-active">
-            
-        <div class="placeholder-figure placeholder-figure-compact" aria-hidden="true">
-          <svg viewBox="0 0 640 360" role="presentation">
-            <rect x="1" y="1" width="638" height="358" rx="24"></rect>
-            <path d="M92 116h456"></path>
-            <path d="M92 180h320"></path>
-            <path d="M92 244h388"></path>
-            <text x="320" y="302" text-anchor="middle">PLACEHOLDER: DASHBOARD</text>
-          </svg>
-        </div>
-            <div class="admin-slide-copy">
-              <h3>Dashboard</h3>
-              <p>Monitor tenant activity, token posture, and operational signals from one overview screen.</p>
-            </div>
-          </article>
-
-          <article class="admin-slide" hidden>
-            
-        <div class="placeholder-figure placeholder-figure-compact" aria-hidden="true">
-          <svg viewBox="0 0 640 360" role="presentation">
-            <rect x="1" y="1" width="638" height="358" rx="24"></rect>
-            <path d="M92 116h456"></path>
-            <path d="M92 180h320"></path>
-            <path d="M92 244h388"></path>
-            <text x="320" y="302" text-anchor="middle">PLACEHOLDER: APPLICATIONS</text>
-          </svg>
-        </div>
-            <div class="admin-slide-copy">
-              <h3>Applications</h3>
-              <p>Register clients, grant scopes, and manage redirect URIs and secrets in one place.</p>
-            </div>
-          </article>
-
-          <article class="admin-slide" hidden>
-            
-        <div class="placeholder-figure placeholder-figure-compact" aria-hidden="true">
-          <svg viewBox="0 0 640 360" role="presentation">
-            <rect x="1" y="1" width="638" height="358" rx="24"></rect>
-            <path d="M92 116h456"></path>
-            <path d="M92 180h320"></path>
-            <path d="M92 244h388"></path>
-            <text x="320" y="302" text-anchor="middle">PLACEHOLDER: TENANT MANAGEMENT</text>
-          </svg>
-        </div>
-            <div class="admin-slide-copy">
-              <h3>Tenant Management</h3>
-              <p>Configure tenant-specific boundaries, branding, and policy settings without custom admin tooling.</p>
-            </div>
-          </article>
-
-          <article class="admin-slide" hidden>
-            
-        <div class="placeholder-figure placeholder-figure-compact" aria-hidden="true">
-          <svg viewBox="0 0 640 360" role="presentation">
-            <rect x="1" y="1" width="638" height="358" rx="24"></rect>
-            <path d="M92 116h456"></path>
-            <path d="M92 180h320"></path>
-            <path d="M92 244h388"></path>
-            <text x="320" y="302" text-anchor="middle">PLACEHOLDER: USER MANAGEMENT</text>
-          </svg>
-        </div>
-            <div class="admin-slide-copy">
-              <h3>User Management</h3>
-              <p>Manage users, status, roles, and lifecycle operations from a central identity directory.</p>
-            </div>
-          </article>
-
-          <article class="admin-slide" hidden>
-            
-        <div class="placeholder-figure placeholder-figure-compact" aria-hidden="true">
-          <svg viewBox="0 0 640 360" role="presentation">
-            <rect x="1" y="1" width="638" height="358" rx="24"></rect>
-            <path d="M92 116h456"></path>
-            <path d="M92 180h320"></path>
-            <path d="M92 244h388"></path>
-            <text x="320" y="302" text-anchor="middle">PLACEHOLDER: ROLES & PERMISSIONS</text>
-          </svg>
-        </div>
-            <div class="admin-slide-copy">
-              <h3>Roles & Permissions</h3>
-              <p>Model access with controlled role definitions and permission boundaries for operators and applications.</p>
-            </div>
-          </article>
-
-          <article class="admin-slide" hidden>
-            
-        <div class="placeholder-figure placeholder-figure-compact" aria-hidden="true">
-          <svg viewBox="0 0 640 360" role="presentation">
-            <rect x="1" y="1" width="638" height="358" rx="24"></rect>
-            <path d="M92 116h456"></path>
-            <path d="M92 180h320"></path>
-            <path d="M92 244h388"></path>
-            <text x="320" y="302" text-anchor="middle">PLACEHOLDER: MFA POLICIES</text>
-          </svg>
-        </div>
-            <div class="admin-slide-copy">
-              <h3>MFA Policies</h3>
-              <p>Apply stronger authentication requirements for administrators and higher-risk access scenarios.</p>
-            </div>
-          </article>
-
-          <article class="admin-slide" hidden>
-            
-        <div class="placeholder-figure placeholder-figure-compact" aria-hidden="true">
-          <svg viewBox="0 0 640 360" role="presentation">
-            <rect x="1" y="1" width="638" height="358" rx="24"></rect>
-            <path d="M92 116h456"></path>
-            <path d="M92 180h320"></path>
-            <path d="M92 244h388"></path>
-            <text x="320" y="302" text-anchor="middle">PLACEHOLDER: EXTERNAL PROVIDERS</text>
-          </svg>
-        </div>
-            <div class="admin-slide-copy">
-              <h3>External Providers</h3>
-              <p>Connect third-party identity providers while keeping TokenIDP as the central control plane.</p>
-            </div>
-          </article>
-        </div>
-        <div class="carousel-dots">
+          <div class="carousel-dots">
           <button class="carousel-dot is-active" type="button" aria-label="Go to slide 1" aria-current="true"></button>
           <button class="carousel-dot" type="button" aria-label="Go to slide 2" aria-current="false"></button>
           <button class="carousel-dot" type="button" aria-label="Go to slide 3" aria-current="false"></button>
@@ -441,7 +637,11 @@
           <button class="carousel-dot" type="button" aria-label="Go to slide 5" aria-current="false"></button>
           <button class="carousel-dot" type="button" aria-label="Go to slide 6" aria-current="false"></button>
           <button class="carousel-dot" type="button" aria-label="Go to slide 7" aria-current="false"></button>
+          </div>
         </div>
+        <button class="carousel-control carousel-control-arrow" type="button" data-carousel-next aria-label="Next slide">
+          <span aria-hidden="true">&#8250;</span>
+        </button>
       </div>
     </section>
 

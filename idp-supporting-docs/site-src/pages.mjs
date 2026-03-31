@@ -126,11 +126,49 @@ function renderPlaceholderGraphic(label, modifierClass = "") {
 
 function renderAdminCarouselSlide(slide, index) {
   return `
-          <article class="admin-slide${index === 0 ? " is-active" : ""}"${index === 0 ? "" : " hidden"}>
-            ${renderPlaceholderGraphic(`PLACEHOLDER: ${slide.title.toUpperCase()}`, "placeholder-figure-compact")}
-            <div class="admin-slide-copy">
-              <h3>${slide.title}</h3>
-              <p>${slide.description}</p>
+          <article class="admin-slide admin-slide--${slide.theme}${index === 0 ? " is-active" : ""}"${index === 0 ? "" : " hidden"}>
+            <div class="admin-slide-visual">
+              <div class="admin-slide-heading">
+                <span>${slide.kicker}</span>
+                <h3>${slide.title}</h3>
+              </div>
+              <div class="admin-slide-frame" aria-hidden="true">
+                <div class="admin-slide-sidebar">
+                  <span class="admin-ui-badge admin-ui-badge--wide"></span>
+                  <span class="admin-ui-badge"></span>
+                  <span class="admin-ui-badge"></span>
+                  <span class="admin-ui-badge"></span>
+                </div>
+                <div class="admin-slide-panel">
+                  <div class="admin-slide-topbar">
+                    <span class="admin-ui-pill admin-ui-pill--short"></span>
+                    <span class="admin-ui-pill"></span>
+                  </div>
+                  <div class="admin-slide-stats">
+                    <span class="admin-ui-card"></span>
+                    <span class="admin-ui-card admin-ui-card--accent"></span>
+                    <span class="admin-ui-card"></span>
+                  </div>
+                  <div class="admin-slide-dashboard">
+                    <div class="admin-slide-chart">
+                      <span class="admin-line admin-line-1"></span>
+                      <span class="admin-line admin-line-2"></span>
+                      <span class="admin-line admin-line-3"></span>
+                    </div>
+                    <div class="admin-slide-stack">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  <div class="admin-slide-table">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
             </div>
           </article>`;
 }
@@ -925,38 +963,38 @@ function renderLandingPage(helpers) {
   const adminSlides = [
     {
       title: "Dashboard",
-      description:
-        "Monitor tenant activity, token posture, and operational signals from one overview screen.",
+      kicker: "Live overview",
+      theme: "dashboard",
     },
     {
       title: "Applications",
-      description:
-        "Register clients, grant scopes, and manage redirect URIs and secrets in one place.",
+      kicker: "Client registry",
+      theme: "applications",
     },
     {
       title: "Tenant Management",
-      description:
-        "Configure tenant-specific boundaries, branding, and policy settings without custom admin tooling.",
+      kicker: "Workspace controls",
+      theme: "tenants",
     },
     {
       title: "User Management",
-      description:
-        "Manage users, status, roles, and lifecycle operations from a central identity directory.",
+      kicker: "Identity directory",
+      theme: "users",
     },
     {
       title: "Roles & Permissions",
-      description:
-        "Model access with controlled role definitions and permission boundaries for operators and applications.",
+      kicker: "Access modeling",
+      theme: "roles",
     },
     {
       title: "MFA Policies",
-      description:
-        "Apply stronger authentication requirements for administrators and higher-risk access scenarios.",
+      kicker: "Security controls",
+      theme: "mfa",
     },
     {
       title: "External Providers",
-      description:
-        "Connect third-party identity providers while keeping TokenIDP as the central control plane.",
+      kicker: "Federation setup",
+      theme: "providers",
     },
   ];
 
@@ -1156,28 +1194,25 @@ ${[
         Operate tenants, applications, users, and policy settings through a
         central management interface built for support teams and platform owners.
       </p>
-      <div class="admin-carousel card" data-carousel>
-        <div class="admin-carousel-toolbar">
-          <h3>Portal Screens</h3>
-          <div class="carousel-controls">
-            <button class="carousel-control" type="button" data-carousel-prev aria-label="Previous slide">
-              Prev
-            </button>
-            <button class="carousel-control" type="button" data-carousel-next aria-label="Next slide">
-              Next
-            </button>
-          </div>
-        </div>
-        <div class="admin-carousel-viewport">
+      <div class="admin-carousel-shell" data-carousel>
+        <button class="carousel-control carousel-control-arrow" type="button" data-carousel-prev aria-label="Previous slide">
+          <span aria-hidden="true">&#8249;</span>
+        </button>
+        <div class="admin-carousel card">
+          <div class="admin-carousel-viewport">
 ${adminSlides.map(renderAdminCarouselSlide).join("\n")}
-        </div>
-        <div class="carousel-dots">
+          </div>
+          <div class="carousel-dots">
 ${adminSlides
   .map(
     (_, index) => `          <button class="carousel-dot${index === 0 ? " is-active" : ""}" type="button" aria-label="Go to slide ${index + 1}" aria-current="${index === 0 ? "true" : "false"}"></button>`,
   )
   .join("\n")}
+          </div>
         </div>
+        <button class="carousel-control carousel-control-arrow" type="button" data-carousel-next aria-label="Next slide">
+          <span aria-hidden="true">&#8250;</span>
+        </button>
       </div>
     </section>
 
