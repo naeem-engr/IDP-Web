@@ -1129,13 +1129,13 @@ ${[
       <div class="standards-layout">
         <div class="card standards-copy">
           <ul class="standards-list">
-            <li><strong>OAuth 2.1-aligned architecture</strong><br />Designed for secure, standards-driven authorization without custom implementations.</li>
-            <li><strong>OpenID Connect (OIDC) identity layer</strong><br />Enables reliable authentication and user identity verification.</li>
-            <li><strong>Authorization Code Flow with PKCE</strong><br />Industry-recommended flow for web and mobile applications, preventing authorization code interception.</li>
-            <li><strong>Client Credentials Flow for machine-to-machine access</strong><br />Ideal for backend services, APIs, and microservices communication.</li>
-            <li><strong>Device Authorization Flow (Device Flow)</strong><br />Enables secure authentication for devices with limited input capabilities such as TVs and IoT devices.</li>
-            <li><strong>Secure Refresh Token handling</strong><br />Supports long-lived sessions with controlled and secure token renewal.</li>
-            <li><strong>Token Revocation support</strong><br />Allows clients to invalidate access or refresh tokens to immediately terminate sessions and prevent unauthorized access.</li>
+            <li><span class="comparison-check" aria-hidden="true">&#10003;</span><strong>OAuth 2.1-aligned architecture</strong><br />Designed for secure, standards-driven authorization without custom implementations.</li>
+            <li><span class="comparison-check" aria-hidden="true">&#10003;</span><strong>OpenID Connect (OIDC) identity layer</strong><br />Enables reliable authentication and user identity verification.</li>
+            <li><span class="comparison-check" aria-hidden="true">&#10003;</span><strong>Authorization Code Flow with PKCE</strong><br />Industry-recommended flow for web and mobile applications, preventing authorization code interception.</li>
+            <li><span class="comparison-check" aria-hidden="true">&#10003;</span><strong>Client Credentials Flow for machine-to-machine access</strong><br />Ideal for backend services, APIs, and microservices communication.</li>
+            <li><span class="comparison-check" aria-hidden="true">&#10003;</span><strong>Device Authorization Flow (Device Flow)</strong><br />Enables secure authentication for devices with limited input capabilities such as TVs and IoT devices.</li>
+            <li><span class="comparison-check" aria-hidden="true">&#10003;</span><strong>Secure Refresh Token handling</strong><br />Supports long-lived sessions with controlled and secure token renewal.</li>
+            <li><span class="comparison-check" aria-hidden="true">&#10003;</span><strong>Token Revocation support</strong><br />Allows clients to invalidate access or refresh tokens to immediately terminate sessions and prevent unauthorized access.</li>
           </ul>
         </div>
         <div class="card standards-diagram-card">

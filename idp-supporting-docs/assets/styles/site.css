@@ -820,15 +820,26 @@ h3 {
 
 .standards-list {
   margin: 0;
-  padding-left: 20px;
+  padding-left: 0;
+  list-style: none;
   color: #334155;
 }
 
-.standards-list li::marker,
 .card-list li::marker,
 .docs-content li::marker,
 .blog-content li::marker {
   color: var(--theme-primary);
+}
+
+.standards-list li {
+  position: relative;
+  padding-left: 32px;
+}
+
+.standards-list .comparison-check {
+  position: absolute;
+  top: 0.1rem;
+  left: 0;
 }
 
 .standards-list li + li {
