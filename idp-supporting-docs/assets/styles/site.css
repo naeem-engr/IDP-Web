@@ -1003,6 +1003,10 @@ h3 {
   color: #64748b;
 }
 
+.contact-copy > p + p {
+  margin-top: 1em;
+}
+
 .contact-meta {
   margin-top: 28px;
 }

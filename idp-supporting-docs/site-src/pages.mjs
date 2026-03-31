@@ -854,14 +854,14 @@ function renderContactSection() {
             your identity platform needs, deployment plans, or product
             questions.
           </p>
+          <p>
+            Have questions about integrating TokenIDP into your architecture?
+            Our team can help with deployment, integration, and best practices.
+          </p>
 
         </div>
 
         <div class="contact-form-wrap">
-          <p class="contact-form-lead">
-            Have questions about integrating TokenIDP into your architecture?
-            Our team can help with deployment, integration, and best practices.
-          </p>
           <h3>Reach us quickly</h3>
           <form class="contact-form">
             <input
