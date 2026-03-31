@@ -139,6 +139,18 @@ function renderAdminCarouselSlide(slide, index) {
           </article>`;
 }
 
+function renderCarouselArrow(direction) {
+  const path =
+    direction === "prev"
+      ? "M14.5 5.5L7.5 12L14.5 18.5"
+      : "M9.5 5.5L16.5 12L9.5 18.5";
+
+  return `
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="${path}"></path>
+            </svg>`;
+}
+
 function landingPageScript() {
   return `document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   const track = carousel.querySelector(".admin-carousel-track");
@@ -1171,7 +1183,7 @@ ${[
       </p>
       <div class="admin-carousel-shell" data-carousel>
         <button class="carousel-control carousel-control-arrow" type="button" data-carousel-prev aria-label="Previous slide">
-          <span aria-hidden="true">&#8249;</span>
+${renderCarouselArrow("prev")}
         </button>
         <div class="admin-carousel card">
           <div class="admin-carousel-viewport">
@@ -1188,7 +1200,7 @@ ${adminSlides
           </div>
         </div>
         <button class="carousel-control carousel-control-arrow" type="button" data-carousel-next aria-label="Next slide">
-          <span aria-hidden="true">&#8250;</span>
+${renderCarouselArrow("next")}
         </button>
       </div>
     </section>

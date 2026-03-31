@@ -853,7 +853,7 @@ h3 {
 .admin-carousel-shell {
   position: relative;
   margin-top: 36px;
-  padding: 0 64px;
+  padding: 0;
 }
 
 .admin-carousel {
@@ -881,11 +881,11 @@ h3 {
 }
 
 .admin-carousel-shell [data-carousel-prev] {
-  left: 0;
+  left: 16px;
 }
 
 .admin-carousel-shell [data-carousel-next] {
-  right: 0;
+  right: 16px;
 }
 
 .carousel-control-arrow {
@@ -907,16 +907,30 @@ h3 {
   backdrop-filter: blur(10px);
 }
 
+.carousel-control-arrow:focus-visible,
+.carousel-dot:focus-visible {
+  outline: 2px solid var(--theme-primary);
+  outline-offset: 3px;
+}
+
+.carousel-control-arrow svg {
+  width: 26px;
+  height: 26px;
+  display: block;
+}
+
+.carousel-control-arrow path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .carousel-control-arrow:hover {
   background: rgba(var(--theme-primary-rgb), 0.78);
   border-color: rgba(var(--theme-secondary-rgb), 0.7);
   transform: translateY(-50%) scale(1.04);
-}
-
-.carousel-control-arrow span {
-  display: block;
-  line-height: 1;
-  font-size: 1.8rem;
 }
 
 .admin-carousel-viewport {
@@ -1939,7 +1953,7 @@ h3 {
   }
 
   .admin-carousel-shell {
-    padding: 0 52px;
+    padding: 0;
   }
 
   .admin-slide {
@@ -1963,16 +1977,21 @@ h3 {
     border-radius: 12px;
   }
 
+  .carousel-control-arrow svg {
+    width: 24px;
+    height: 24px;
+  }
+
   .admin-carousel-shell {
     padding: 0;
   }
 
   .admin-carousel-shell [data-carousel-prev] {
-    left: 12px;
+    left: 10px;
   }
 
   .admin-carousel-shell [data-carousel-next] {
-    right: 12px;
+    right: 10px;
   }
 
   .admin-slide {
