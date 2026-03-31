@@ -855,15 +855,6 @@ function renderContactSection() {
             questions.
           </p>
 
-          <div class="contact-meta">
-            <h3>Head Office</h3>
-            <p>121 King St, Melbourne VIC 3000, Australia</p>
-            <p><strong>Phone:</strong> +61 2 8376 6284</p>
-            <p>
-              <strong>Email:</strong>
-              <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a>
-            </p>
-          </div>
         </div>
 
         <div class="contact-form-wrap">
