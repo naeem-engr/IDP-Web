@@ -853,7 +853,7 @@ h3 {
 .admin-carousel-shell {
   margin-top: 36px;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: 50px minmax(0, 1fr) 50px;
   grid-template-areas: "prev carousel next";
   gap: 26px;
   align-items: center;
@@ -861,16 +861,15 @@ h3 {
 
 .admin-carousel {
   grid-area: carousel;
-  padding: 18px;
-  overflow: visible;
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
   border: 1px solid #dbe5f1;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(var(--theme-secondary-rgb), 0.12) 0%,
-      rgba(255, 255, 255, 0.98) 100%
-    ),
-    #ffffff;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
 }
 
 .carousel-control,
@@ -906,8 +905,8 @@ h3 {
 }
 
 .carousel-control-arrow {
-  width: 54px;
-  height: 54px;
+  width: 50px;
+  height: 50px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -915,7 +914,7 @@ h3 {
   justify-self: center;
   padding: 0;
   border: 0;
-  border-radius: 16px;
+  border-radius: 6px;
   background: linear-gradient(
     135deg,
     var(--theme-primary) 0%,
@@ -936,15 +935,18 @@ h3 {
 }
 
 .admin-slide {
-  display: block;
+  display: grid;
+  grid-template-columns: minmax(0, 42%) minmax(0, 58%);
+  background: #ffffff;
+  min-height: 520px;
 }
 
 .admin-slide-visual {
   --admin-accent: 113, 221, 255;
   position: relative;
-  min-height: 480px;
-  padding: 28px;
-  border-radius: 28px;
+  min-height: 520px;
+  padding: 24px;
+  border-radius: 0;
   overflow: hidden;
   isolation: isolate;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24);
@@ -1026,12 +1028,12 @@ h3 {
 
 .admin-slide-heading {
   position: absolute;
-  top: 28px;
-  left: 28px;
+  top: 22px;
+  left: 22px;
   z-index: 2;
-  max-width: 320px;
-  padding: 20px 22px;
-  border-radius: 24px;
+  max-width: 250px;
+  padding: 16px 18px;
+  border-radius: 18px;
   background: rgba(255, 255, 255, 0.84);
   border: 1px solid rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(14px);
@@ -1051,20 +1053,20 @@ h3 {
 .admin-slide-heading h3 {
   margin: 0;
   color: #0f172a;
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.02;
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  line-height: 1.08;
 }
 
 .admin-slide-frame {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 84px minmax(0, 1fr);
-  gap: 18px;
-  min-height: 322px;
-  margin-top: 114px;
-  padding: 18px;
-  border-radius: 28px;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 14px;
+  min-height: 300px;
+  margin-top: 132px;
+  padding: 16px;
+  border-radius: 22px;
   background: rgba(9, 20, 40, 0.16);
   border: 1px solid rgba(255, 255, 255, 0.22);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
@@ -1074,9 +1076,9 @@ h3 {
 .admin-slide-sidebar {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 12px 10px;
-  border-radius: 22px;
+  gap: 10px;
+  padding: 10px 8px;
+  border-radius: 18px;
   background: rgba(255, 255, 255, 0.16);
 }
 
@@ -1091,12 +1093,12 @@ h3 {
 }
 
 .admin-ui-badge {
-  height: 40px;
-  border-radius: 14px;
+  height: 34px;
+  border-radius: 12px;
 }
 
 .admin-ui-badge--wide {
-  height: 62px;
+  height: 54px;
   background: rgba(255, 255, 255, 0.42);
 }
 
@@ -1109,12 +1111,12 @@ h3 {
 .admin-slide-topbar {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
+  gap: 10px;
 }
 
 .admin-ui-pill {
-  width: 118px;
-  height: 16px;
+  width: 96px;
+  height: 14px;
   border-radius: 999px;
 }
 
@@ -1125,12 +1127,12 @@ h3 {
 .admin-slide-stats {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
+  gap: 10px;
 }
 
 .admin-ui-card {
-  min-height: 94px;
-  border-radius: 22px;
+  min-height: 76px;
+  border-radius: 18px;
 }
 
 .admin-ui-card--accent {
@@ -1143,28 +1145,28 @@ h3 {
 
 .admin-slide-dashboard {
   display: grid;
-  grid-template-columns: minmax(0, 1.55fr) minmax(0, 0.9fr);
-  gap: 14px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
 }
 
 .admin-slide-chart,
 .admin-slide-stack,
 .admin-slide-table {
-  border-radius: 24px;
+  border-radius: 18px;
   background: rgba(255, 255, 255, 0.16);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
 }
 
 .admin-slide-chart {
   position: relative;
-  min-height: 152px;
+  min-height: 126px;
   overflow: hidden;
-  padding: 18px;
+  padding: 16px;
 }
 
 .admin-line {
   position: absolute;
-  left: 18px;
+  left: 16px;
   height: 2px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.62);
@@ -1188,11 +1190,11 @@ h3 {
 .admin-slide-chart::after {
   content: "";
   position: absolute;
-  left: 18px;
-  right: 18px;
-  bottom: 18px;
-  height: 88px;
-  border-radius: 22px 22px 0 0;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  height: 70px;
+  border-radius: 18px 18px 0 0;
   background: linear-gradient(
     180deg,
     rgba(var(--admin-accent), 0.44) 0%,
@@ -1214,8 +1216,8 @@ h3 {
 .admin-slide-stack {
   display: grid;
   grid-template-rows: repeat(3, 1fr);
-  gap: 12px;
-  padding: 18px;
+  gap: 10px;
+  padding: 16px;
 }
 
 .admin-slide-stack span,
@@ -1226,8 +1228,8 @@ h3 {
 .admin-slide-table {
   display: grid;
   grid-template-rows: repeat(4, 18px);
-  gap: 10px;
-  padding: 18px;
+  gap: 9px;
+  padding: 16px;
 }
 
 .admin-slide-table span:nth-child(2) {
@@ -1246,14 +1248,16 @@ h3 {
   display: flex;
   justify-content: center;
   gap: 8px;
-  padding: 18px 0 4px;
+  padding: 20px 0;
 }
 
 .carousel-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 999px;
+  width: 18px;
+  height: 4px;
+  border-radius: 3px;
   padding: 0;
+  border: 0;
+  background: #c7d4f5;
   transition:
     width 0.2s ease,
     background 0.2s ease,
@@ -1261,9 +1265,148 @@ h3 {
 }
 
 .carousel-dot.is-active {
-  width: 34px;
+  width: 20px;
   background: var(--theme-primary);
-  border-color: var(--theme-primary);
+}
+
+.admin-slide-detail {
+  display: flex;
+  align-items: center;
+  padding: 46px 40px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(var(--theme-secondary-rgb), 0.08) 0%,
+      rgba(255, 255, 255, 1) 32%
+    ),
+    #ffffff;
+}
+
+.admin-slide-detail-shell {
+  width: 100%;
+  display: grid;
+  gap: 22px;
+}
+
+.admin-detail-tag,
+.admin-detail-title,
+.admin-detail-card,
+.admin-detail-quote span,
+.admin-detail-avatar,
+.admin-detail-meta span {
+  display: block;
+  border-radius: 999px;
+  background: #d9e7fb;
+}
+
+.admin-detail-tag {
+  width: 122px;
+  height: 14px;
+  background: rgba(var(--admin-accent), 0.28);
+}
+
+.admin-detail-title {
+  width: min(360px, 82%);
+  height: 46px;
+  border-radius: 18px;
+  background: linear-gradient(
+    90deg,
+    rgba(15, 23, 42, 0.9) 0%,
+    rgba(15, 23, 42, 0.64) 68%,
+    rgba(15, 23, 42, 0) 100%
+  );
+}
+
+.admin-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.admin-detail-card {
+  min-height: 118px;
+  border-radius: 24px;
+  background: linear-gradient(
+    180deg,
+    rgba(var(--theme-secondary-rgb), 0.22) 0%,
+    rgba(255, 255, 255, 0.98) 100%
+  );
+  border: 1px solid rgba(var(--theme-secondary-rgb), 0.42);
+}
+
+.admin-detail-card--accent {
+  background: linear-gradient(
+    180deg,
+    rgba(var(--admin-accent), 0.32) 0%,
+    rgba(255, 255, 255, 0.98) 100%
+  );
+}
+
+.admin-detail-quote {
+  display: grid;
+  gap: 12px;
+}
+
+.admin-detail-quote span {
+  height: 12px;
+  border-radius: 999px;
+  background: #d5e2f5;
+}
+
+.admin-detail-quote span:nth-child(1) {
+  width: 100%;
+}
+
+.admin-detail-quote span:nth-child(2) {
+  width: 94%;
+}
+
+.admin-detail-quote span:nth-child(3) {
+  width: 88%;
+}
+
+.admin-detail-quote span:nth-child(4) {
+  width: 64%;
+}
+
+.admin-detail-footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.admin-detail-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(
+    145deg,
+    rgba(var(--admin-accent), 0.48) 0%,
+    rgba(var(--theme-secondary-rgb), 0.24) 100%
+  );
+}
+
+.admin-detail-meta {
+  min-width: 0;
+  flex: 1;
+  display: grid;
+  gap: 10px;
+}
+
+.admin-detail-meta span {
+  height: 12px;
+  border-radius: 999px;
+  background: #d5e2f5;
+}
+
+.admin-detail-meta span:first-child {
+  width: 160px;
+}
+
+.admin-detail-meta span:last-child {
+  width: 110px;
+  background: rgba(var(--admin-accent), 0.26);
 }
 
 .integration-code {
@@ -1899,6 +2042,53 @@ h3 {
   color: var(--theme-primary);
 }
 
+.admin-slide--dashboard .admin-slide-detail {
+  --admin-accent: 113, 221, 255;
+}
+
+.admin-slide--applications .admin-slide-detail {
+  --admin-accent: 123, 255, 214;
+}
+
+.admin-slide--tenants .admin-slide-detail {
+  --admin-accent: 255, 211, 133;
+}
+
+.admin-slide--users .admin-slide-detail {
+  --admin-accent: 164, 255, 209;
+}
+
+.admin-slide--roles .admin-slide-detail {
+  --admin-accent: 155, 207, 255;
+}
+
+.admin-slide--mfa .admin-slide-detail {
+  --admin-accent: 255, 198, 145;
+}
+
+.admin-slide--providers .admin-slide-detail {
+  --admin-accent: 182, 236, 255;
+}
+
+@media (max-width: 900px) {
+  .admin-carousel {
+    max-width: 100%;
+  }
+
+  .admin-slide {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .admin-slide-visual {
+    min-height: 360px;
+  }
+
+  .admin-slide-detail {
+    padding: 32px 24px;
+  }
+}
+
 .blogs-page .container:last-of-type {
   padding-bottom: 72px;
 }
@@ -2176,36 +2366,28 @@ h3 {
   }
 
   .admin-slide-visual {
-    min-height: 500px;
-    padding: 20px;
+    min-height: 320px;
+    padding: 18px;
   }
 
   .admin-slide-heading {
-    top: 20px;
-    left: 20px;
-    right: 20px;
-    max-width: none;
+    top: 18px;
+    left: 18px;
+    max-width: 220px;
   }
 
   .admin-slide-frame {
-    grid-template-columns: 1fr;
-    min-height: 0;
-    margin-top: 152px;
+    min-height: 250px;
+    margin-top: 116px;
   }
 
   .admin-slide-sidebar {
-    flex-direction: row;
+    flex-direction: column;
   }
 
   .admin-ui-badge,
   .admin-ui-badge--wide {
-    flex: 1 1 0;
-    height: 30px;
-  }
-
-  .admin-slide-stats,
-  .admin-slide-dashboard {
-    grid-template-columns: 1fr;
+    height: 28px;
   }
 
   .final-cta-actions {
@@ -2221,21 +2403,29 @@ h3 {
   }
 
   .admin-slide-visual {
-    min-height: 430px;
+    min-height: 290px;
   }
 
   .admin-slide-heading h3 {
-    font-size: 1.8rem;
+    font-size: 1.55rem;
   }
 
   .admin-slide-frame {
-    margin-top: 134px;
-    padding: 14px;
+    margin-top: 106px;
+    padding: 12px;
   }
 
   .admin-slide-sidebar {
     gap: 8px;
     padding: 8px;
+  }
+
+  .admin-slide-detail {
+    padding: 24px 18px;
+  }
+
+  .admin-detail-grid {
+    grid-template-columns: 1fr;
   }
 
   .footer-content {

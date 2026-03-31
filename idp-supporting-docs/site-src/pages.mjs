@@ -170,6 +170,29 @@ function renderAdminCarouselSlide(slide, index) {
                 </div>
               </div>
             </div>
+            <div class="admin-slide-detail" aria-hidden="true">
+              <div class="admin-slide-detail-shell">
+                <span class="admin-detail-tag"></span>
+                <span class="admin-detail-title"></span>
+                <div class="admin-detail-grid">
+                  <span class="admin-detail-card admin-detail-card--accent"></span>
+                  <span class="admin-detail-card"></span>
+                </div>
+                <div class="admin-detail-quote">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="admin-detail-footer">
+                  <span class="admin-detail-avatar"></span>
+                  <div class="admin-detail-meta">
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </article>`;
 }
 
