@@ -138,6 +138,7 @@ export function renderPage(page) {
     relativePagePath: (target) => relativePagePath(page.outputPath, target),
   };
   const stylesheetHref = helpers.relativePath("assets/styles/site.css");
+  const faviconHref = helpers.relativePath("assets/images/favicon.svg");
   const extraScripts = page.extraScripts?.(helpers) ?? [];
   const scripts = [...extraScripts, COMMON_SCRIPT]
     .map((script) => `    <script>\n${script}\n    </script>`)
@@ -149,6 +150,7 @@ export function renderPage(page) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${escapeHtml(page.title)}</title>
+    <link rel="icon" type="image/svg+xml" href="${faviconHref}" />
     <link rel="stylesheet" href="${stylesheetHref}" />
   </head>
   <body class="${escapeHtml(page.bodyClass)}">

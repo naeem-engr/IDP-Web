@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const docsRoot = path.resolve(__dirname, "..", "docs-repo");
+const siteRoot = path.resolve(__dirname, "..");
 
 const SECTION_ORDER = [
   "tutorials",
@@ -259,6 +260,11 @@ function resolveLinkTarget(target, context) {
 
   if (resolvedPosix.startsWith(toPosix(path.join(docsRoot, "images")))) {
     const assetTarget = `docs/images/${path.posix.basename(resolvedPosix)}`;
+    return `${relativeAssetPath(context.outputPath, assetTarget)}${hash}`;
+  }
+
+  if (resolvedPosix.startsWith(toPosix(siteRoot))) {
+    const assetTarget = toPosix(path.relative(siteRoot, resolvedPath));
     return `${relativeAssetPath(context.outputPath, assetTarget)}${hash}`;
   }
 

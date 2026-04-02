@@ -26,10 +26,6 @@ const generatedArtifacts = [
 
 const staticArtifacts = [
   "assets",
-  "Banner.png",
-  "Auth Code Flow.png",
-  "Device Flow.png",
-  "Integration Workflow.png",
 ];
 const docsImagesSourceDir = path.join(siteRoot, "docs-repo", "images");
 const docsImagesOutputDir = path.join(siteRoot, "docs", "images");

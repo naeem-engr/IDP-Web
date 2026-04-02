@@ -21,8 +21,8 @@
   --theme-secondary: #89cff3;
   --theme-primary-rgb: 0, 169, 255;
   --theme-secondary-rgb: 137, 207, 243;
-  --landing-hero-image: url("../../Banner.png");
-  --marketing-hero-image: url("../../Banner.png");
+  --landing-hero-image: url("../images/Banner.png");
+  --marketing-hero-image: url("../images/Banner.png");
 }
 
 main {

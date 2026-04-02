@@ -494,7 +494,9 @@ const DOC_PAGES = [
     group: "OAuth Flows",
     title: "Authorization Code Flow with PKCE | Docs | Enterprise Identity Platform",
     content: (helpers) => {
-      const oauthFlowDiagram = helpers.relativePath("Auth Code Flow.png");
+      const oauthFlowDiagram = helpers.relativePath(
+        "assets/images/Auth Code Flow.png",
+      );
 
       return `
           <h2>Authorization Code Flow with PKCE</h2>
@@ -617,7 +619,9 @@ const DOC_PAGES = [
     group: "OAuth Flows",
     title: "Device Flow | Docs | Enterprise Identity Platform",
     content: (helpers) => {
-      const deviceFlowDiagram = helpers.relativePath("Device Flow.png");
+      const deviceFlowDiagram = helpers.relativePath(
+        "assets/images/Device Flow.png",
+      );
 
       return `
           <h2>Device Flow</h2>
@@ -962,8 +966,12 @@ function renderLandingPage(helpers) {
   const contactHref = helpers.relativePagePath(ROUTES.contact);
   const docsHref = helpers.relativePagePath(ROUTES.docs);
   const getStartedHref = helpers.relativePagePath("docs/getting-started/index.html");
-  const integrationWorkflowDiagram = helpers.relativePath("Integration Workflow.png");
-  const deviceFlowDiagram = helpers.relativePath("Device Flow.png");
+  const integrationWorkflowDiagram = helpers.relativePath(
+    "assets/images/Integration Workflow.png",
+  );
+  const deviceFlowDiagram = helpers.relativePath(
+    "assets/images/Device Flow.png",
+  );
   const adminSlides = [
     {
       title: "Login",
