@@ -1172,11 +1172,11 @@ ${[
           </ul>
         </div>
         <div class="card standards-diagram-card">
-          <h3 class="standards-diagram-title">Device Flow</h3>
+          <h3 class="standards-diagram-title">Authorization Code Flow</h3>
           <figure class="standards-diagram-figure">
             <img
               src="${authCodeFlowDiagram}"
-              alt="Device Flow diagram showing verification on a separate device"
+              alt="Authorization Code Flow diagram showing the PKCE-based sign-in flow"
             />
           </figure>
         </div>
