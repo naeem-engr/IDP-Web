@@ -969,8 +969,8 @@ function renderLandingPage(helpers) {
   const integrationWorkflowDiagram = helpers.relativePath(
     "assets/images/Integration Workflow.png",
   );
-  const deviceFlowDiagram = helpers.relativePath(
-    "assets/images/Device Flow.png",
+  const authCodeFlowDiagram = helpers.relativePath(
+    "assets/images/Auth Code Flow.png",
   );
   const adminSlides = [
     {
@@ -1175,7 +1175,7 @@ ${[
           <h3 class="standards-diagram-title">Device Flow</h3>
           <figure class="standards-diagram-figure">
             <img
-              src="${deviceFlowDiagram}"
+              src="${authCodeFlowDiagram}"
               alt="Device Flow diagram showing verification on a separate device"
             />
           </figure>
