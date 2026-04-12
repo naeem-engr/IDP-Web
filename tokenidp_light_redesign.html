@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --white: #ffffff;
+  --bg: #f5f7fa;
+  --bg2: #eef1f6;
+  --ink: #0d1b2e;
+  --ink2: #2d3e52;
+  --muted: #6b7f96;
+  --muted2: #94a8bb;
+  --blue: #00a9ff;
+  --blue-light: #e8f1fc;
+  --blue-mid: #ccdff8;
+  --blue-border: #b3cef4;
+  --teal: #00a878;
+  --teal-light: #e6f7f2;
+  --border: #dce3ec;
+  --border2: #e8edf4;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  overflow-x: hidden;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 5%;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 0;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 21px;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+}
+.logo span { color: var(--blue); }
+
+nav ul { display: flex; list-style: none; gap: 32px; }
+nav ul a {
+  text-decoration: none;
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 400;
+  transition: color 0.18s;
+}
+nav ul a:hover { color: var(--ink); }
+
+.nav-cta {
+  background: var(--blue) !important;
+  color: #fff !important;
+  padding: 8px 20px;
+  border-radius: 7px;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+  transition: opacity 0.2s !important;
+}
+.nav-cta:hover { opacity: 0.88; }
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+  background: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg-shape {
+  position: absolute;
+  top: -120px; right: -100px;
+  width: 680px; height: 680px;
+  background: radial-gradient(circle at 60% 40%, #e0edff 0%, #f0f6ff 50%, transparent 75%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,98,204,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,98,204,0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black, transparent);
+}
+
+.hero-content { position: relative; z-index: 2; max-width: 620px; }
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--blue-light);
+  border: 1px solid var(--blue-border);
+  border-radius: 100px;
+  padding: 5px 14px;
+  font-size: 12px;
+  color: var(--blue);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.3px;
+  margin-bottom: 28px;
+}
+.hero-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--blue);
+  border-radius: 50%;
+  animation: blink 2s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.25} }
+
+h1 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.06;
+  letter-spacing: -2px;
+  color: var(--ink);
+  margin-bottom: 22px;
+}
+h1 .accent { color: var(--blue); }
+
+.hero-sub {
+  font-size: 17px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 480px;
+  margin-bottom: 16px;
+}
+
+.tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 38px; }
+.tag {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 4px 11px;
+  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--muted);
+}
+
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.btn-primary {
+  background: var(--blue);
+  color: #fff;
+  padding: 13px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: opacity 0.15s, transform 0.15s;
+  display: inline-block;
+}
+.btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+
+.btn-ghost {
+  background: var(--white);
+  color: var(--ink2);
+  padding: 13px 30px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  transition: border-color 0.2s, background 0.2s;
+  display: inline-block;
+}
+.btn-ghost:hover { border-color: var(--blue); background: var(--blue-light); color: var(--blue); }
+
+.hero-visual {
+  position: absolute;
+  right: 4%; top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.orbit-ring {
+  width: 400px; height: 400px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid;
+  animation: spin linear infinite;
+}
+.ring1 { width:100%;height:100%; border-color: rgba(0,98,204,0.1); animation-duration:40s; }
+.ring2 { width:70%;height:70%; border-color: rgba(0,98,204,0.16); animation-duration:26s; animation-direction:reverse; }
+.ring3 { width:42%;height:42%; border-color: rgba(0,98,204,0.22); animation-duration:15s; }
+@keyframes spin { from{transform:rotate(0)} to{transform:rotate(360deg)} }
+
+.center-node {
+  width: 84px; height: 84px;
+  background: var(--blue-light);
+  border: 2px solid var(--blue);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1;
+}
+
+.orbit-dot {
+  position: absolute;
+  width: 44px; height: 44px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  box-shadow: 0 2px 12px rgba(0,40,100,0.07);
+}
+
+.stats-bar {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 0;
+}
+
+.stats-bar .container {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+.stat-item { text-align: center; }
+.stat-num {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  color: var(--blue);
+  letter-spacing: -1px;
+}
+.stat-label { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+section { padding: 96px 0; }
+
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--blue);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+h2 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: clamp(26px, 3.5vw, 44px);
+  letter-spacing: -1.2px;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 18px;
+}
+
+.section-intro {
+  font-size: 17px;
+  color: var(--muted);
+  max-width: 540px;
+  line-height: 1.7;
+  margin-bottom: 56px;
+}
+
+.why-section { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+
+.why-text p { color: var(--muted); font-size: 16px; line-height: 1.75; margin-bottom: 14px; }
+
+.mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.mini-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.mini-card:hover { border-color: var(--blue); box-shadow: 0 4px 20px rgba(0,98,204,0.08); }
+.mini-card-icon { font-size: 22px; margin-bottom: 10px; display: block; }
+.mini-card h4 { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 5px; }
+.mini-card p { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.feature-card {
+  background: var(--white);
+  padding: 34px 30px;
+  transition: background 0.18s;
+  position: relative;
+}
+.feature-card:hover { background: var(--blue-light); }
+.feature-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--blue);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.feature-card:hover::after { opacity: 1; }
+
+.feature-icon {
+  width: 42px; height: 42px;
+  background: var(--blue-light);
+  border: 1px solid var(--blue-border);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px;
+  font-size: 18px;
+}
+
+.feature-card h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--ink);
+  letter-spacing: -0.2px;
+}
+
+.feature-card p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+.compare-section { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+.compare-card {
+  border-radius: 16px;
+  padding: 36px 32px;
+  border: 1px solid;
+}
+.compare-card.diy { background: var(--white); border-color: var(--border); }
+.compare-card.idp { background: var(--white); border-color: var(--blue); border-width: 2px; }
+
+.compare-card h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: -0.4px;
+}
+.compare-card.diy h3 { color: var(--muted); }
+.compare-card.idp h3 { color: var(--blue); }
+
+.compare-badge {
+  display: inline-block;
+  background: var(--blue-light);
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.5px;
+}
+
+.compare-card .subtitle {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.compare-list { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.compare-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.check {
+  flex-shrink: 0;
+  width: 18px; height: 18px;
+  margin-top: 1px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.check.no { background: var(--bg2); border: 1px solid var(--border); }
+.check.yes { background: var(--teal); }
+.check svg { width: 10px; height: 10px; }
+
+.diy .compare-list li { color: var(--muted); }
+.idp .compare-list li { color: var(--ink2); }
+
+.arch-diagram {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 0;
+  align-items: center;
+}
+
+.arch-col { display: flex; flex-direction: column; gap: 10px; }
+
+.arch-box {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--ink2);
+  font-family: 'JetBrains Mono', monospace;
+  transition: border-color 0.2s;
+  cursor: default;
+}
+.arch-box:hover { border-color: var(--blue); }
+.arch-box .box-label { font-size: 10px; color: var(--muted); font-family: 'DM Sans', sans-serif; margin-bottom: 3px; }
+.arch-box.highlight { border-color: var(--blue); background: var(--blue-light); color: var(--blue); }
+
+.arch-arrow { display: flex; align-items: center; justify-content: center; padding: 0 18px; color: var(--muted2); font-size: 20px; }
+
+.arch-center {
+  background: var(--blue);
+  border-radius: 14px;
+  padding: 20px 22px;
+  text-align: center;
+}
+.arch-center h4 { font-family: 'Syne', sans-serif; font-size: 14px; color: #fff; font-weight: 700; margin-bottom: 6px; }
+.arch-center p { font-size: 11px; color: rgba(255,255,255,0.7); font-family: 'JetBrains Mono', monospace; line-height: 1.7; }
+
+.dashboard-preview {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 32px rgba(0,40,100,0.06);
+}
+
+.dash-header {
+  background: var(--bg);
+  padding: 12px 22px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border-bottom: 1px solid var(--border);
+}
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot.r { background: #ff5f57; }
+.dot.y { background: #febc2e; }
+.dot.g { background: #28c840; }
+.dash-title { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); margin-left: 8px; }
+
+.dash-body {
+  padding: 22px;
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 18px;
+  min-height: 360px;
+}
+
+.dash-sidebar { display: flex; flex-direction: column; gap: 3px; }
+.dash-nav-item {
+  padding: 9px 13px;
+  border-radius: 7px;
+  font-size: 13px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.dash-nav-item:hover, .dash-nav-item.active { background: var(--blue-light); color: var(--blue); }
+.dash-nav-item .ni { font-size: 14px; }
+
+.dash-main { display: flex; flex-direction: column; gap: 14px; }
+
+.metrics-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.metric-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+}
+.metric-label { font-size: 11px; color: var(--muted); margin-bottom: 5px; }
+.metric-value { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; color: var(--ink); letter-spacing: -0.5px; }
+.metric-delta { font-size: 11px; margin-top: 3px; }
+.up { color: var(--teal); }
+.dn { color: #d94040; }
+
+.chart-area {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+  flex: 1;
+}
+.chart-area h4 { font-size: 12px; color: var(--muted); font-family: 'JetBrains Mono', monospace; margin-bottom: 14px; }
+
+.bar-chart { display: flex; align-items: flex-end; gap: 7px; height: 90px; }
+.bar { flex: 1; border-radius: 4px 4px 0 0; background: var(--blue-mid); transition: background 0.2s; }
+.bar.active { background: var(--blue); }
+.bar:hover { background: #85b7eb; }
+
+.integrate-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+
+.code-block {
+  background: var(--ink);
+  border-radius: 12px;
+  padding: 26px 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  line-height: 1.8;
+}
+.kw { color: #ff79c6; }
+.str { color: #50fa7b; }
+.fn { color: #8be9fd; }
+.cm { color: #6272a4; }
+
+.sdk-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.sdk-pill {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 7px 14px;
+  font-size: 13px;
+  color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.cta-section {
+  text-align: center;
+  padding: 100px 0;
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+.cta-inner { position: relative; z-index: 2; }
+.cta-section h2 { color: #fff; font-size: clamp(32px, 5vw, 56px); margin-bottom: 18px; }
+.cta-section h2 span { color: #60b4ff; }
+.cta-section p { color: rgba(255,255,255,0.55); font-size: 17px; margin-bottom: 36px; }
+.cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn-primary-inv {
+  background: #fff;
+  color: var(--ink);
+  padding: 13px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: opacity 0.15s;
+  display: inline-block;
+}
+.btn-primary-inv:hover { opacity: 0.9; }
+.btn-ghost-inv {
+  background: transparent;
+  color: rgba(255,255,255,0.75);
+  padding: 13px 30px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: border-color 0.2s, color 0.2s;
+  display: inline-block;
+}
+.btn-ghost-inv:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+
+footer {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 56px 0 36px;
+}
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 44px; margin-bottom: 44px; }
+.footer-brand p { color: var(--muted); font-size: 14px; line-height: 1.65; margin-top: 10px; max-width: 260px; }
+.footer-col h5 { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 14px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.footer-col ul a { text-decoration: none; font-size: 14px; color: var(--muted); transition: color 0.18s; }
+.footer-col ul a:hover { color: var(--blue); }
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .hero-visual, .two-col, .compare-grid, .integrate-grid, .footer-top, .arch-diagram { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .features-grid { grid-template-columns: 1fr 1fr; }
+  .dash-body { grid-template-columns: 1fr; }
+  .metrics-row { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="logo">Token<span>IDP</span></div>
+    <ul>
+      <li><a href="#">Use Cases</a></li>
+      <li><a href="#">Docs</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#" class="nav-cta">Get Started</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg-shape"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="container">
+  <div class="hero-content">
+    <div class="hero-badge">v2.4 — OAuth2 · OpenID Connect · RBAC</div>
+    <h1>One Identity<br><span style="white-space:nowrap">for <span class="accent">Every App</span></span><br>& Service</h1>
+    <p class="hero-sub">Self-hosted identity infrastructure built from real-world experience. Simple to configure, deploy, and operate at any scale.</p>
+    <div class="tech-tags">
+      <span class="tag">OAuth2</span>
+      <span class="tag">OpenID Connect</span>
+      <span class="tag">RBAC</span>
+      <span class="tag">User Management</span>
+      <span class="tag">MFA</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#" class="btn-primary">Get Started Free</a>
+      <a href="#" class="btn-ghost">Schedule a Demo →</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="orbit-ring">
+      <div class="ring ring1"></div>
+      <div class="ring ring2"></div>
+      <div class="ring ring3"></div>
+      <div class="center-node">
+        <svg width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="18" cy="14" r="6" stroke="#0062cc" stroke-width="2"/>
+          <path d="M6 30c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#0062cc" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="18" cy="14" r="2" fill="#0062cc"/>
+        </svg>
+      </div>
+      <div class="orbit-dot" style="top:7%;left:50%;transform:translateX(-50%)">🔐</div>
+      <div class="orbit-dot" style="bottom:7%;left:50%;transform:translateX(-50%)">🏛️</div>
+      <div class="orbit-dot" style="left:3%;top:50%;transform:translateY(-50%)">📱</div>
+      <div class="orbit-dot" style="right:3%;top:50%;transform:translateY(-50%)">☁️</div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="container">
+    <div class="stat-item"><div class="stat-num">80%+</div><div class="stat-label">Faster auth flow setup</div></div>
+    <div class="stat-item"><div class="stat-num">3 min</div><div class="stat-label">Avg. integration time</div></div>
+    <div class="stat-item"><div class="stat-num">99.9%</div><div class="stat-label">Uptime SLA</div></div>
+    <div class="stat-item"><div class="stat-num">0 deps</div><div class="stat-label">External vendor lock-in</div></div>
+  </div>
+</div>
+
+<section class="why-section">
+  <div class="container">
+  <div class="two-col">
+    <div>
+      <div class="section-label">// our purpose</div>
+      <h2>Why This Platform Exists</h2>
+      <p class="why-text" style="color:var(--muted);font-size:16px;line-height:1.75;margin-bottom:14px;">After building OAuth and identity flows across multiple systems, a clear pattern emerged: teams repeatedly re-implement the same platform — client management, token flows, RBAC, tenant separation, and operational visibility.</p>
+      <p style="color:var(--muted);font-size:16px;line-height:1.75;">TokenIDP consolidates those fragmented patterns into a reusable, modern identity platform focused on clarity, security, and real-world capability.</p>
+    </div>
+    <div class="mini-grid">
+      <div class="mini-card"><span class="mini-card-icon">🏠</span><h4>Self-Hosted</h4><p>Your data stays in your infrastructure. No external dependencies.</p></div>
+      <div class="mini-card"><span class="mini-card-icon">🔗</span><h4>Standards First</h4><p>Built on OAuth2, OpenID Connect, and RBAC — not proprietary APIs.</p></div>
+      <div class="mini-card"><span class="mini-card-icon">⚡</span><h4>Fast Deploy</h4><p>From zero to working identity platform in under 15 minutes.</p></div>
+      <div class="mini-card"><span class="mini-card-icon">🛡️</span><h4>Audit Ready</h4><p>Compliance-grade logging and access control out of the box.</p></div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+  <div class="section-label">// capabilities</div>
+  <h2>Core Features</h2>
+  <p class="section-intro">Everything you need to build secure, scalable authentication and authorization — without stitching together a dozen services.</p>
+  <div class="features-grid">
+    <div class="feature-card"><div class="feature-icon">🏠</div><h3>Self-Hosted & Data Control</h3><p>Keep security data within your own infrastructure. No telemetry, no data leaving your environment, no vendor dependency.</p></div>
+    <div class="feature-card"><div class="feature-icon">🎯</div><h3>Centralized Identity</h3><p>Manage users, roles, tenant policies, and identity operations from one central place. No more scattered config across services.</p></div>
+    <div class="feature-card"><div class="feature-icon">🔒</div><h3>Security Standards</h3><p>Built on OAuth 2.1, OpenID Connect, RBAC, and CSRF-safe design. Meets enterprise security requirements by default.</p></div>
+    <div class="feature-card"><div class="feature-icon">🔑</div><h3>API Authorization</h3><p>Secure APIs with scopes, token validation, and templates. Consistent, auditable authorization across all your services.</p></div>
+    <div class="feature-card"><div class="feature-icon">🚀</div><h3>Faster Development</h3><p>Stop writing auth from scratch. Shorten delivery time so teams focus on product, not plumbing.</p></div>
+    <div class="feature-card"><div class="feature-icon">🖥️</div><h3>Admin Portal</h3><p>Manage tenants, apps, users, and policy settings through a unified control interface built for ops and support teams.</p></div>
+  </div>
+  </div>
+</section>
+
+<section class="compare-section">
+  <div class="container">
+  <div class="section-label">// decision guide</div>
+  <h2>Build vs Buy Identity</h2>
+  <p class="section-intro">Building auth from scratch becomes exponentially complex at scale. TokenIDP gives you a production-ready platform so teams focus on product, not security infrastructure.</p>
+  <div class="compare-grid">
+    <div class="compare-card diy">
+      <h3>Build It Yourself</h3>
+      <p class="subtitle">What the DIY path actually looks like</p>
+      <ul class="compare-list">
+        <li><span class="check no"></span><span style="color:var(--muted)">Design begins — OAuth from scratch</span></li>
+        <li><span class="check no"></span><span style="color:var(--muted)">Build user, role & tenant management</span></li>
+        <li><span class="check no"></span><span style="color:var(--muted)">Implement token management</span></li>
+        <li><span class="check no"></span><span style="color:var(--muted)">Maintain security policies</span></li>
+        <li><span class="check no"></span><span style="color:var(--muted)">Weeks to months of development effort</span></li>
+        <li><span class="check no"></span><span style="color:var(--muted)">Requires deep protocol knowledge</span></li>
+      </ul>
+    </div>
+    <div class="compare-card idp">
+      <div class="compare-badge">Recommended</div>
+      <h3>Use TokenIDP</h3>
+      <p class="subtitle">What you get on day one</p>
+      <ul class="compare-list">
+        <li><span class="check yes"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>OAuth2 + OpenID Connect ready immediately</span></li>
+        <li><span class="check yes"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Built-in user, role & tenant management</span></li>
+        <li><span class="check yes"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Built-in identity management</span></li>
+        <li><span class="check yes"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>MFA & security policies included</span></li>
+        <li><span class="check yes"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Integrate in minutes</span></li>
+        <li><span class="check yes"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>No deep protocol knowledge required</span></li>
+      </ul>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+  <div class="section-label">// architecture</div>
+  <h2>How It Works</h2>
+  <p class="section-intro">Your application delegates authentication to the Identity Platform while keeping full control of business logic. The platform issues tokens — clients use those tokens to access your APIs.</p>
+  <div class="arch-diagram">
+    <div class="arch-col">
+      <div class="arch-box highlight"><div class="box-label">User Applications</div>Web App</div>
+      <div class="arch-box"><div class="box-label">User Applications</div>Mobile App</div>
+      <div class="arch-box"><div class="box-label">User Applications</div>CLI / API Client</div>
+    </div>
+    <div class="arch-arrow">→</div>
+    <div class="arch-center">
+      <h4>TokenIDP Platform</h4>
+      <p>OAuth2 · OIDC · RBAC<br>Token Issuance · MFA<br>Admin Portal · Audit Log</p>
+    </div>
+    <div class="arch-arrow">→</div>
+    <div class="arch-col">
+      <div class="arch-box"><div class="box-label">Protected APIs</div>Resource Server</div>
+      <div class="arch-box"><div class="box-label">External</div>Google · GitHub</div>
+      <div class="arch-box"><div class="box-label">External</div>LDAP / SAML</div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section style="background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container">
+  <div class="section-label">// admin portal</div>
+  <h2>Unified Control Plane</h2>
+  <p class="section-intro">Manage tenants, applications, users, and policy settings through a centralized interface built for support teams and platform owners.</p>
+  <div class="dashboard-preview">
+    <div class="dash-header">
+      <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+      <span class="dash-title">TokenIDP Admin — Dashboard</span>
+    </div>
+    <div class="dash-body">
+      <div class="dash-sidebar">
+        <div class="dash-nav-item active"><span class="ni">📊</span> Dashboard</div>
+        <div class="dash-nav-item"><span class="ni">👥</span> Users</div>
+        <div class="dash-nav-item"><span class="ni">🏢</span> Tenants</div>
+        <div class="dash-nav-item"><span class="ni">🔐</span> Applications</div>
+        <div class="dash-nav-item"><span class="ni">🔑</span> Tokens</div>
+        <div class="dash-nav-item"><span class="ni">📋</span> Audit Log</div>
+        <div class="dash-nav-item"><span class="ni">⚙️</span> Settings</div>
+      </div>
+      <div class="dash-main">
+        <div class="metrics-row">
+          <div class="metric-box"><div class="metric-label">Active Users</div><div class="metric-value">4,782</div><div class="metric-delta up">↑ 12.4% this week</div></div>
+          <div class="metric-box"><div class="metric-label">Token Requests / hr</div><div class="metric-value">47.5K</div><div class="metric-delta up">↑ 3.2% vs avg</div></div>
+          <div class="metric-box"><div class="metric-label">Auth Success Rate</div><div class="metric-value">99.7%</div><div class="metric-delta up">↑ Nominal</div></div>
+          <div class="metric-box"><div class="metric-label">Active Tenants</div><div class="metric-value">128</div><div class="metric-delta dn">↓ 2 inactive</div></div>
+        </div>
+        <div class="chart-area">
+          <h4>// token volume — last 7 days</h4>
+          <div class="bar-chart">
+            <div class="bar" style="height:52%"></div>
+            <div class="bar" style="height:68%"></div>
+            <div class="bar" style="height:60%"></div>
+            <div class="bar" style="height:82%"></div>
+            <div class="bar" style="height:76%"></div>
+            <div class="bar active" style="height:94%"></div>
+            <div class="bar" style="height:86%"></div>
+            <div class="bar" style="height:70%"></div>
+            <div class="bar" style="height:64%"></div>
+            <div class="bar" style="height:90%"></div>
+            <div class="bar" style="height:78%"></div>
+            <div class="bar" style="height:72%"></div>
+            <div class="bar" style="height:66%"></div>
+            <div class="bar active" style="height:100%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+  <div class="integrate-grid">
+    <div>
+      <div class="section-label">// developer experience</div>
+      <h2>Integrate in Minutes</h2>
+      <p style="color:var(--muted);font-size:16px;line-height:1.75;margin-bottom:20px;">Get started with existing framework integrations, the Node SDK, and discovery-based configuration. No building authentication plumbing from scratch.</p>
+      <div class="sdk-pills">
+        <span class="sdk-pill">Node.js SDK</span>
+        <span class="sdk-pill">REST API</span>
+        <span class="sdk-pill">Docker ready</span>
+        <span class="sdk-pill">OAuth Discovery</span>
+        <span class="sdk-pill">JWKS endpoint</span>
+      </div>
+    </div>
+    <div class="code-block">
+      <span class="cm">// Initialize TokenIDP client</span><br>
+      <span class="kw">import</span> <span style="color:#f8f8f2">{ TokenIDP }</span> <span class="kw">from</span> <span class="str">'@tokenidp/node'</span>;<br><br>
+      <span class="kw">const</span> <span style="color:#f8f8f2">idp</span> = <span class="kw">new</span> <span class="fn">TokenIDP</span>({<br>
+      &nbsp;&nbsp;issuer: <span class="str">'https://auth.example.com'</span>,<br>
+      &nbsp;&nbsp;clientId: <span class="str">process.env.CLIENT_ID</span>,<br>
+      &nbsp;&nbsp;clientSecret: <span class="str">process.env.CLIENT_SECRET</span>,<br>
+      });<br><br>
+      <span class="cm">// Validate incoming token</span><br>
+      <span class="kw">const</span> <span style="color:#f8f8f2">payload</span> = <span class="kw">await</span> idp.<span class="fn">verify</span>(token);<br>
+      <span class="cm">// → { sub, roles, tenant, exp }</span>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container cta-inner">
+    <div class="section-label" style="color:#60b4ff">// get started</div>
+    <h2>Start Building Secure<br><span>Applications Today</span></h2>
+    <p>Deploy in minutes. Scale without limits. Own your identity infrastructure.</p>
+    <div class="cta-btns">
+      <a href="#" class="btn-primary-inv">Get Started Free</a>
+      <a href="#" class="btn-ghost-inv">Schedule a Demo →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">Token<span>IDP</span></div>
+      <p>Modern identity infrastructure for teams who care about security, clarity, and operational ownership.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Product</h5>
+      <ul><li><a href="#">Features</a></li><li><a href="#">Use Cases</a></li><li><a href="#">Pricing</a></li><li><a href="#">Changelog</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h5>Developers</h5>
+      <ul><li><a href="#">Documentation</a></li><li><a href="#">API Reference</a></li><li><a href="#">SDKs</a></li><li><a href="#">GitHub</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul><li><a href="#">Blog</a></li><li><a href="#">Contact</a></li><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 TokenIDP. All rights reserved.</span>
+    <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted2);letter-spacing:1px;">v2.4.0 — MIT Licensed</span>
+  </div>
+  </div>
+</footer>
+
+</body>
+</html>

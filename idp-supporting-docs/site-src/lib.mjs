@@ -32,6 +32,10 @@ function renderNav(page) {
   const docsHref = relativePagePath(page.outputPath, "docs/index.html");
   const blogsHref = relativePagePath(page.outputPath, "blogs/index.html");
   const contactHref = relativePagePath(page.outputPath, "contact/index.html");
+  const getStartedHref = relativePagePath(
+    page.outputPath,
+    "docs/getting-started/index.html",
+  );
   const usecaseSaasHref = relativePagePath(
     page.outputPath,
     "usecases/b2b-saas/index.html",
@@ -82,7 +86,8 @@ function renderNav(page) {
           </div>
           <a href="${docsHref}"${docsClass}>Docs</a>
           <a href="${blogsHref}"${blogsClass}>Blog</a>
-          <a href="${contactHref}"${contactClass}>Contact us</a>
+          <a href="${contactHref}"${contactClass}>Contact</a>
+          <a class="nav-cta" href="${getStartedHref}">Get Started</a>
         </div>
       </div>
     </nav>`;
@@ -140,6 +145,8 @@ export function renderPage(page) {
   const stylesheetHref = helpers.relativePath("assets/styles/site.css");
   const faviconHref = helpers.relativePath("assets/images/favicon.svg");
   const extraScripts = page.extraScripts?.(helpers) ?? [];
+  const footerHtml = page.renderFooter?.(helpers) ?? renderFooter(page);
+  const bodyContent = page.renderBody?.(helpers);
   const scripts = [...extraScripts, COMMON_SCRIPT]
     .map((script) => `    <script>\n${script}\n    </script>`)
     .join("\n");
@@ -151,14 +158,21 @@ export function renderPage(page) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${escapeHtml(page.title)}</title>
     <link rel="icon" type="image/svg+xml" href="${faviconHref}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&family=Syne:wght@500;700;800&display=swap"
+    />
     <link rel="stylesheet" href="${stylesheetHref}" />
   </head>
   <body class="${escapeHtml(page.bodyClass)}">
-${renderNav(page)}
+${bodyContent ??
+  `${renderNav(page)}
     <main>
 ${page.render(helpers)}
     </main>
-${renderFooter(page)}
+${footerHtml}`}
 ${scripts}
   </body>
 </html>

@@ -6,18 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>One Identity Across Every App</title>
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&family=Syne:wght@500;700;800&display=swap"
+    />
     <link rel="stylesheet" href="assets/styles/site.css" />
   </head>
   <body class="landing-page">
 
-    <nav class="top-nav">
-      <div class="nav-inner">
-        <a class="brand" href="./" aria-label="TokenIDP home">
+    <nav>
+      <div class="container">
+        <a class="logo" href="./" aria-label="TokenIDP home">
           <img src="assets/logos/TokenIDP.svg" alt="TokenIDP" />
         </a>
-        <div class="nav-links">
-          <a href="./">Home</a>
-          <div class="usecases-dropdown">
+        <ul>
+          <li class="usecases-dropdown">
             <button
               class="usecases-trigger"
               type="button"
@@ -32,213 +37,205 @@
               <a href="usecases/api-platform-builders/">API Platform Builders</a>
               <a href="usecases/enterprise-architecture/">Enterprise Architecture</a>
             </div>
-          </div>
-          <a href="docs/">Docs</a>
-          <a href="blogs/">Blog</a>
-          <a href="contact/">Contact us</a>
-        </div>
+          </li>
+          <li><a href="docs/">Docs</a></li>
+          <li><a href="blogs/">Blog</a></li>
+          <li><a href="contact/">Contact</a></li>
+          <li><a href="docs/getting-started/" class="nav-cta">Get Started</a></li>
+        </ul>
       </div>
     </nav>
-    <main>
 
-    <header class="main-header">
-      <div class="hero-content">
-        <h1>One Identity for Every<br>App and Service</h1>
-        <p>
-          OAuth2, OpenID Connect, RBAC,<br>
-          and User Management, built from real-world experience,<br>
-          simple to configure &amp; deploy, and easy to operate.
-        </p>
-        <div class="hero-actions">
-          <a class="btn" href="docs/getting-started/">Get Started</a>
-          <a class="btn" href="contact/">Schedule a Demo</a>
-        </div>
-      </div>
-    </header>
-
-    <section class="origin-section">
-      <div class="origin-card">
-        <span class="origin-kicker">Our Purpose</span>
-        <h2>Why This Platform Exists</h2>
-        <p>
-          After building OAuth2 and identity flows across multiple systems, it
-          became clear that teams repeatedly re-implement the same patterns:
-          client management, token flows, RBAC, tenant separation, and
-          operational visibility. This project turns those repeated patterns
-          into a reusable, modern identity platform focused on clarity,
-          security, and real-world usability.
-        </p>
-      </div>
-    </section>
-
-    <section id="usecase-saas" class="container">
-      <h2>Core Features</h2>
-      <div class="grid feature-grid">
-
-        <div class="card feature-card">
-          <div class="feature-icon" aria-hidden="true">
-
-            <svg viewBox="0 0 64 64" role="presentation">
-              <rect x="18" y="14" width="28" height="36" rx="4"></rect>
-              <path d="M24 22h16"></path>
-              <path d="M24 30h16"></path>
-              <path d="M24 38h10"></path>
-              <path d="M32 50v-10"></path>
-              <path d="M25 44l7-7 7 7"></path>
-            </svg>
+    <section class="hero">
+      <div class="hero-bg-shape"></div>
+      <div class="hero-grid-lines"></div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">OAuth2 &middot; OpenID Connect &middot; RBAC</div>
+          <h1>One Identity<br><span style="white-space:nowrap">for <span class="accent">Every App</span></span><br>&amp; Service</h1>
+          <p class="hero-sub">Self-hosted identity infrastructure built from real-world experience. Simple to configure, deploy, and operate at any scale.</p>
+          <div class="tech-tags">
+            <span class="tag">OAuth2</span>
+            <span class="tag">OpenID Connect</span>
+            <span class="tag">RBAC</span>
+            <span class="tag">User Management</span>
+            <span class="tag">MFA</span>
           </div>
-          <h3>Self-Hosted & Data Control</h3>
-          <p>
-            Keep identity data inside your own infrastructure and databases without depending on external providers.
-          </p>
-        </div>
-
-        <div class="card feature-card">
-          <div class="feature-icon" aria-hidden="true">
-
-            <svg viewBox="0 0 64 64" role="presentation">
-              <circle cx="32" cy="18" r="6"></circle>
-              <circle cx="18" cy="34" r="5"></circle>
-              <circle cx="46" cy="34" r="5"></circle>
-              <circle cx="18" cy="50" r="5"></circle>
-              <circle cx="46" cy="50" r="5"></circle>
-              <path d="M28 22l-6 8"></path>
-              <path d="M36 22l6 8"></path>
-              <path d="M18 39v6"></path>
-              <path d="M46 39v6"></path>
-              <path d="M23 34h18"></path>
-              <path d="M22 47h20"></path>
-            </svg>
+          <div class="hero-btns">
+            <a href="docs/getting-started/" class="btn-primary">Get Started Free</a>
+            <a href="contact/" class="btn-ghost">Schedule a Demo &rarr;</a>
           </div>
-          <h3>Centralized Identity</h3>
-          <p>
-            Manage users, roles, tenant policies, and identity operations from one control place.
-          </p>
         </div>
-
-        <div class="card feature-card">
-          <div class="feature-icon" aria-hidden="true">
-
-            <svg viewBox="0 0 64 64" role="presentation">
-              <path d="M32 12l16 7v12c0 11-6.7 17.8-16 21-9.3-3.2-16-10-16-21V19l16-7z"></path>
-              <path d="M25 32l5 5 9-10"></path>
-              <path d="M32 18v6"></path>
-            </svg>
-          </div>
-          <h3>Security Standards</h3>
-          <p>
-            Built-in OAuth 2.1, OpenID Connect, RBAC, MFA, and GDPR by design help meet modern security expectations.
-          </p>
-        </div>
-
-        <div class="card feature-card">
-          <div class="feature-icon" aria-hidden="true">
-
-            <svg viewBox="0 0 64 64" role="presentation">
-              <rect x="14" y="18" width="18" height="28" rx="4"></rect>
-              <rect x="32" y="24" width="18" height="16" rx="4"></rect>
-              <path d="M23 32h18"></path>
-              <path d="M41 20l7 7-7 7"></path>
-            </svg>
-          </div>
-          <h3>API Authorization</h3>
-          <p>
-            Protect APIs with scopes, token validation, and consistent access control across services.
-          </p>
-        </div>
-
-        <div class="card feature-card">
-          <div class="feature-icon" aria-hidden="true">
-
-            <svg viewBox="0 0 64 64" role="presentation">
-              <path d="M18 44l10-24 8 16 6-10 4 18"></path>
-              <path d="M16 48h32"></path>
-              <path d="M22 18h8"></path>
-              <path d="M20 22h4"></path>
-            </svg>
-          </div>
-          <h3>Faster Development</h3>
-          <p>
-            Avoid building authentication from scratch and reduce delivery time for new applications.
-          </p>
-        </div>
-
-        <div class="card feature-card">
-          <div class="feature-icon" aria-hidden="true">
-
-            <svg viewBox="0 0 64 64" role="presentation">
-              <path d="M16 18h32"></path>
-              <path d="M16 30h20"></path>
-              <path d="M16 42h14"></path>
-              <circle cx="44" cy="40" r="10"></circle>
-              <path d="M44 35v5l4 3"></path>
-            </svg>
-          </div>
-          <h3>Admin Portal</h3>
-          <p>
-            UI to manage tenants, applications, users, and security settings, with a dashboard for monitoring authentication activity.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="build-vs-buy-shell">
-      <svg class="build-vs-buy-wave" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0 40C180 120 360 10 540 48C720 86 900 150 1080 104C1260 58 1350 12 1440 34V0H0Z"></path>
-      </svg>
-      <div class="container build-vs-buy">
-        <h2>Build vs Buy Identity Provider</h2>
-
-        <p class="section-intro">
-          Building authentication and access control systems from scratch
-          becomes complex as applications scale. TokenIDP provides a
-          ready-to-use identity platform so teams can focus on building
-          product features instead of security infrastructure.
-        </p>
-
-        <div class="comparison-wrap">
-          <div class="comparison-table">
-            <div class="comparison-column card">
-              <h3>Build Authentication Yourself</h3>
-              <div class="comparison-row comparison-row-compact">
-                <p>Design login + OAuth flows</p>
-              </div>
-              <div class="comparison-row comparison-row-compact">
-                <p>Build user, rbac &amp; tenant management</p>
-              </div>
-              <div class="comparison-row comparison-row-compact">
-                <p>Implement token management</p>
-              </div>
-              <div class="comparison-row comparison-row-compact">
-                <p>Maintain security policies</p>
-              </div>
-              <div class="comparison-row comparison-row-compact">
-                <p>Weeks or Months of development effort</p>
-              </div>
-              <div class="comparison-row comparison-row-compact">
-                <p>Requires deep knowledge of standard protocols</p>
-              </div>
+        <div class="hero-visual">
+          <div class="orbit-ring">
+            <div class="ring ring1"></div>
+            <div class="ring ring2"></div>
+            <div class="ring ring3"></div>
+            <div class="center-node">
+              <svg width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="18" cy="14" r="6" stroke="#0062cc" stroke-width="2"></circle>
+                <path d="M6 30c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#0062cc" stroke-width="2" stroke-linecap="round"></path>
+                <circle cx="18" cy="14" r="2" fill="#0062cc"></circle>
+              </svg>
             </div>
+            <div class="orbit-dot" style="top:7%;left:50%;transform:translateX(-50%)">&#128274;</div>
+            <div class="orbit-dot" style="bottom:7%;left:50%;transform:translateX(-50%)">&#127963;&#65039;</div>
+            <div class="orbit-dot" style="left:3%;top:50%;transform:translateY(-50%)">&#128241;</div>
+            <div class="orbit-dot" style="right:3%;top:50%;transform:translateY(-50%)">&#9729;&#65039;</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <div class="comparison-column comparison-column-primary card">
-              <h3>Use TokenIDP</h3>
-              <div class="comparison-row comparison-row-compact">
-                <p><span class="comparison-check" aria-hidden="true">&#10003;</span>OAuth2 + OpenID Connect ready</p>
+    <div class="stats-bar">
+      <div class="container">
+        <div class="stat-item"><div class="stat-num">80%+</div><div class="stat-label">Faster auth flow setup</div></div>
+        <div class="stat-item"><div class="stat-num">3 min</div><div class="stat-label">Avg. integration time</div></div>
+        <div class="stat-item"><div class="stat-num">99.9%</div><div class="stat-label">Uptime SLA</div></div>
+      </div>
+    </div>
+
+    <section class="why-section">
+      <div class="container">
+        <div class="two-col">
+          <div>
+            <div class="section-label">// our purpose</div>
+            <h2>Why This Platform Exists</h2>
+            <p class="why-copy">After building OAuth and identity flows across multiple systems, a clear pattern emerged: teams repeatedly re-implement the same platform, client management, token flows, RBAC, tenant separation, and operational visibility.</p>
+            <p class="why-copy">TokenIDP consolidates those fragmented patterns into a reusable, modern identity platform focused on clarity, security, and real-world capability.</p>
+          </div>
+          <div class="mini-grid">
+            <div class="mini-card"><span class="mini-card-icon">&#127968;</span><h4>Self-Hosted</h4><p>Your data stays in your infrastructure. No external dependencies.</p></div>
+            <div class="mini-card"><span class="mini-card-icon">&#128279;</span><h4>Standards First</h4><p>Built on OAuth2, OpenID Connect, and RBAC, not proprietary APIs.</p></div>
+            <div class="mini-card"><span class="mini-card-icon">&#9889;</span><h4>Fast Deploy</h4><p>From zero to working identity platform in under 15 minutes.</p></div>
+            <div class="mini-card"><span class="mini-card-icon">&#128737;&#65039;</span><h4>Audit Ready</h4><p>Compliance-grade logging and access control out of the box.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="container">
+        <div class="section-label">// capabilities</div>
+        <h2>Core Features</h2>
+        <p class="section-intro">Everything you need to build secure, scalable authentication and authorization without stitching together a dozen services.</p>
+        <div class="features-grid">
+          <div class="feature-card"><div class="feature-icon">&#127968;</div><h3>Self-Hosted &amp; Data Control</h3><p>Keep security data within your own infrastructure. No telemetry, no data leaving your environment, no vendor dependency.</p></div>
+          <div class="feature-card"><div class="feature-icon">&#127919;</div><h3>Centralized Identity</h3><p>Manage users, roles, tenant policies, and identity operations from one central place. No more scattered config across services.</p></div>
+          <div class="feature-card"><div class="feature-icon">&#128274;</div><h3>Security Standards</h3><p>Built on OAuth 2.1, OpenID Connect, RBAC, and CSRF-safe design. Meets enterprise security requirements by default.</p></div>
+          <div class="feature-card"><div class="feature-icon">&#128273;</div><h3>API Authorization</h3><p>Secure APIs with scopes, token validation, and templates. Consistent, auditable authorization across all your services.</p></div>
+          <div class="feature-card"><div class="feature-icon">&#128640;</div><h3>Faster Development</h3><p>Stop writing auth from scratch. Shorten delivery time so teams focus on product, not plumbing.</p></div>
+          <div class="feature-card"><div class="feature-icon">&#128421;&#65039;</div><h3>Admin Portal</h3><p>Manage tenants, apps, users, and policy settings through a unified control interface built for ops and support teams.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="compare-section">
+      <div class="container">
+        <div class="section-label">// decision guide</div>
+        <h2>Build vs Buy Identity</h2>
+        <p class="section-intro">Building auth from scratch becomes exponentially complex at scale. TokenIDP gives you a production-ready platform so teams focus on product, not security infrastructure.</p>
+        <div class="compare-grid">
+          <div class="compare-card diy">
+            <h3>Build It Yourself</h3>
+            <p class="subtitle">What the DIY path actually looks like</p>
+            <ul class="compare-list">
+              <li><span class="check no"></span><span>Design begins - OAuth from scratch</span></li>
+              <li><span class="check no"></span><span>Build user, role &amp; tenant management</span></li>
+              <li><span class="check no"></span><span>Implement token management</span></li>
+              <li><span class="check no"></span><span>Maintain security policies</span></li>
+              <li><span class="check no"></span><span>Weeks to months of development effort</span></li>
+              <li><span class="check no"></span><span>Requires deep protocol knowledge</span></li>
+            </ul>
+          </div>
+          <div class="compare-card idp">
+            <div class="compare-badge">Recommended</div>
+            <h3>Use TokenIDP</h3>
+            <p class="subtitle">What you get on day one</p>
+            <ul class="compare-list">
+              <li><span class="check yes"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>OAuth2 + OpenID Connect ready immediately</span></li>
+              <li><span class="check yes"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Built-in user, role &amp; tenant management</span></li>
+              <li><span class="check yes"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Built-in identity management</span></li>
+              <li><span class="check yes"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>MFA &amp; security policies included</span></li>
+              <li><span class="check yes"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Integrate in minutes</span></li>
+              <li><span class="check yes"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>No deep protocol knowledge required</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-label">// architecture</div>
+        <h2>How It Works</h2>
+        <p class="section-intro">Your application delegates authentication to the Identity Platform while keeping full control of business logic. The platform issues tokens &mdash; clients use those tokens to access your APIs.</p>
+        <div class="arch-diagram">
+          <div class="arch-col">
+            <div class="arch-box highlight"><div class="box-label">User Applications</div>Web App</div>
+            <div class="arch-box"><div class="box-label">User Applications</div>Mobile App</div>
+            <div class="arch-box"><div class="box-label">User Applications</div>CLI / API Client</div>
+          </div>
+          <div class="arch-arrow">&rarr;</div>
+          <div class="arch-center">
+            <h4>TokenIDP Platform</h4>
+            <p>OAuth2 &middot; OIDC &middot; RBAC<br>Token Issuance &middot; MFA<br>Admin Portal &middot; Audit Log</p>
+          </div>
+          <div class="arch-arrow">&rarr;</div>
+          <div class="arch-col">
+            <div class="arch-box"><div class="box-label">Protected APIs</div>Resource Server</div>
+            <div class="arch-box"><div class="box-label">External</div>Google &middot; GitHub</div>
+            <div class="arch-box"><div class="box-label">External</div>LDAP / SAML</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="landing-dashboard-section">
+      <div class="container">
+        <div class="section-label">// admin portal</div>
+        <h2>Unified Control Plane</h2>
+        <p class="section-intro">Manage tenants, applications, users, and policy settings through a centralized interface built for support teams and platform owners.</p>
+        <div class="dashboard-preview">
+          <div class="dash-header">
+            <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+            <span class="dash-title">TokenIDP Admin &mdash; Dashboard</span>
+          </div>
+          <div class="dash-body">
+            <div class="dash-sidebar">
+              <div class="dash-nav-item active"><span class="ni">&#128202;</span> Dashboard</div>
+              <div class="dash-nav-item"><span class="ni">&#128101;</span> Users</div>
+              <div class="dash-nav-item"><span class="ni">&#127970;</span> Tenants</div>
+              <div class="dash-nav-item"><span class="ni">&#128272;</span> Applications</div>
+              <div class="dash-nav-item"><span class="ni">&#128273;</span> Tokens</div>
+              <div class="dash-nav-item"><span class="ni">&#128203;</span> Audit Log</div>
+              <div class="dash-nav-item"><span class="ni">&#9881;&#65039;</span> Settings</div>
+            </div>
+            <div class="dash-main">
+              <div class="metrics-row">
+                <div class="metric-box"><div class="metric-label">Active Users</div><div class="metric-value">4,782</div><div class="metric-delta up">&uarr; 12.4% this week</div></div>
+                <div class="metric-box"><div class="metric-label">Token Requests / hr</div><div class="metric-value">47.5K</div><div class="metric-delta up">&uarr; 3.2% vs avg</div></div>
+                <div class="metric-box"><div class="metric-label">Auth Success Rate</div><div class="metric-value">99.7%</div><div class="metric-delta up">&uarr; Nominal</div></div>
+                <div class="metric-box"><div class="metric-label">Active Tenants</div><div class="metric-value">128</div><div class="metric-delta dn">&darr; 2 inactive</div></div>
               </div>
-              <div class="comparison-row comparison-row-compact">
-                <p><span class="comparison-check" aria-hidden="true">&#10003;</span>Built-in user, rbac &amp; tenant management</p>
-              </div>
-              <div class="comparison-row comparison-row-compact">
-                <p><span class="comparison-check" aria-hidden="true">&#10003;</span>Built-in token management</p>
-              </div>
-              <div class="comparison-row comparison-row-compact">
-                <p><span class="comparison-check" aria-hidden="true">&#10003;</span>MFA &amp; security policies</p>
-              </div>
-              <div class="comparison-row comparison-row-compact">
-                <p><span class="comparison-check" aria-hidden="true">&#10003;</span>Integrate in minutes</p>
-              </div>
-              <div class="comparison-row comparison-row-compact">
-                <p><span class="comparison-check" aria-hidden="true">&#10003;</span>No deep protocol knowledge required</p>
+              <div class="chart-area">
+                <h4>// token volume &mdash; last 7 days</h4>
+                <div class="bar-chart">
+                  <div class="bar" style="height:52%"></div>
+                  <div class="bar" style="height:68%"></div>
+                  <div class="bar" style="height:60%"></div>
+                  <div class="bar" style="height:82%"></div>
+                  <div class="bar" style="height:76%"></div>
+                  <div class="bar active" style="height:94%"></div>
+                  <div class="bar" style="height:86%"></div>
+                  <div class="bar" style="height:70%"></div>
+                  <div class="bar" style="height:64%"></div>
+                  <div class="bar" style="height:90%"></div>
+                  <div class="bar" style="height:78%"></div>
+                  <div class="bar" style="height:72%"></div>
+                  <div class="bar" style="height:66%"></div>
+                  <div class="bar active" style="height:100%"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -246,244 +243,85 @@
       </div>
     </section>
 
-    <section id="usecase-integration" class="container">
-      <h2>How It Works (High-Level Architecture)</h2>
-      <p class="architecture-intro">
-        Your application delegates authentication and authorization to the
-        Identity Platform, while keeping full control of business logic and
-        data. The platform issues secure tokens after login. Your backend
-        validates these tokens and enforces access rules based on tenant and
-        roles.
-      </p>
-
-      <figure class="workflow-figure diagram-placeholder">
-        <img
-          src="assets/images/Integration Workflow.png"
-          alt="Integration workflow showing the application, identity platform, and token-based authorization flow"
-        />
-      </figure>
-    </section>
-    
-    <section class="container standards-section">
-      <h2>Standards-Based Authentication</h2>
-      <p class="section-intro">
-        TokenIDP is designed around the standards most teams need in production,
-        so applications can integrate with clear protocol boundaries instead of
-        custom authentication logic.
-      </p>
-      <div class="standards-layout">
-        <div class="card standards-copy">
-          <ul class="standards-list">
-            <li><span class="comparison-check" aria-hidden="true">&#10003;</span><strong>OAuth 2.1-aligned architecture</strong><br />Designed for secure, standards-driven authorization without custom implementations.</li>
-            <li><span class="comparison-check" aria-hidden="true">&#10003;</span><strong>OpenID Connect (OIDC) identity layer</strong><br />Enables reliable authentication and user identity verification.</li>
-            <li><span class="comparison-check" aria-hidden="true">&#10003;</span><strong>Authorization Code Flow with PKCE</strong><br />Industry-recommended flow for web and mobile applications, preventing authorization code interception.</li>
-            <li><span class="comparison-check" aria-hidden="true">&#10003;</span><strong>Client Credentials Flow for machine-to-machine access</strong><br />Ideal for backend services, APIs, and microservices communication.</li>
-            <li><span class="comparison-check" aria-hidden="true">&#10003;</span><strong>Device Authorization Flow (Device Flow)</strong><br />Enables secure authentication for devices with limited input capabilities such as TVs and IoT devices.</li>
-            <li><span class="comparison-check" aria-hidden="true">&#10003;</span><strong>Secure Refresh Token handling</strong><br />Supports long-lived sessions with controlled and secure token renewal.</li>
-            <li><span class="comparison-check" aria-hidden="true">&#10003;</span><strong>Token Revocation support</strong><br />Allows clients to invalidate access or refresh tokens to immediately terminate sessions and prevent unauthorized access.</li>
-          </ul>
-        </div>
-        <div class="card standards-diagram-card">
-          <h3 class="standards-diagram-title">Authorization Code Flow</h3>
-          <figure class="standards-diagram-figure">
-            <img
-              src="assets/images/Auth Code Flow.png"
-              alt="Authorization Code Flow diagram showing the PKCE-based sign-in flow"
-            />
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="container admin-portal-section">
-      <h2>Admin Portal</h2>
-      <p class="section-intro">
-        Operate tenants, applications, users, and policy settings through a
-        central management interface built for support teams and platform owners.
-      </p>
-      <div class="admin-carousel-shell" data-carousel>
-        <button class="carousel-control carousel-control-arrow" type="button" data-carousel-prev aria-label="Previous slide">
-
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M14.5 5.5L7.5 12L14.5 18.5"></path>
-            </svg>
-        </button>
-        <div class="admin-carousel card">
-          <div class="admin-carousel-viewport">
-            <div class="admin-carousel-track">
-
-          <article class="admin-slide">
-            <img
-              class="admin-slide-image"
-              src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80"
-              alt="Login screen showcase"
-              fetchpriority="high"
-            />
-            <div class="admin-slide-heading">
-              <h3>Login</h3>
-            </div>
-          </article>
-
-          <article class="admin-slide">
-            <img
-              class="admin-slide-image"
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80"
-              alt="Dashboard screen showcase"
-              loading="lazy"
-            />
-            <div class="admin-slide-heading">
-              <h3>Dashboard</h3>
-            </div>
-          </article>
-
-          <article class="admin-slide">
-            <img
-              class="admin-slide-image"
-              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80"
-              alt="Application setup screen showcase"
-              loading="lazy"
-            />
-            <div class="admin-slide-heading">
-              <h3>Application Setup</h3>
-            </div>
-          </article>
+    <section>
+      <div class="container">
+        <div class="integrate-grid">
+          <div>
+            <div class="section-label">// developer experience</div>
+            <h2>Integrate in Minutes</h2>
+            <p class="section-intro">Get started with existing framework integrations, the Node SDK, and discovery-based configuration. No building authentication plumbing from scratch.</p>
+            <div class="sdk-pills">
+              <span class="sdk-pill">Node.js SDK</span>
+              <span class="sdk-pill">REST API</span>
+              <span class="sdk-pill">Docker ready</span>
+              <span class="sdk-pill">OAuth Discovery</span>
+              <span class="sdk-pill">JWKS endpoint</span>
             </div>
           </div>
-          <div class="carousel-dots">
-          <button class="carousel-dot is-active" type="button" aria-label="Go to slide 1" aria-current="true"></button>
-          <button class="carousel-dot" type="button" aria-label="Go to slide 2" aria-current="false"></button>
-          <button class="carousel-dot" type="button" aria-label="Go to slide 3" aria-current="false"></button>
+          <div class="code-block">
+            <span class="cm">// Initialize TokenIDP client</span><br>
+            <span class="kw">import</span> <span style="color:#f8f8f2">{ TokenIDP }</span> <span class="kw">from</span> <span class="str">'@tokenidp/node'</span>;<br><br>
+            <span class="kw">const</span> <span style="color:#f8f8f2">idp</span> = <span class="kw">new</span> <span class="fn">TokenIDP</span>({<br>
+            &nbsp;&nbsp;issuer: <span class="str">'https://auth.example.com'</span>,<br>
+            &nbsp;&nbsp;clientId: <span class="str">process.env.CLIENT_ID</span>,<br>
+            &nbsp;&nbsp;clientSecret: <span class="str">process.env.CLIENT_SECRET</span>,<br>
+            });<br><br>
+            <span class="cm">// Validate incoming token</span><br>
+            <span class="kw">const</span> <span style="color:#f8f8f2">payload</span> = <span class="kw">await</span> idp.<span class="fn">verify</span>(token);<br>
+            <span class="cm">// -&gt; { sub, roles, tenant, exp }</span>
           </div>
         </div>
-        <button class="carousel-control carousel-control-arrow" type="button" data-carousel-next aria-label="Next slide">
-
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M9.5 5.5L16.5 12L9.5 18.5"></path>
-            </svg>
-        </button>
       </div>
     </section>
 
-    <section class="container integrate-section">
-      <h2>Integrate in Minutes</h2>
-      <p class="section-intro">
-        Developers can get started with the existing host integration patterns,
-        the React SDK, and discovery-based configuration instead of building
-        authentication plumbing from zero.
-      </p>
-      <div class="integration-layout">
-        <div class="card integration-points">
-          <ul class="standards-list">
-            <li>NuGet package</li>
-            <li>React SDK</li>
-            <li>OAuth discovery endpoint</li>
-          </ul>
-        </div>
-        <div class="card integration-code-card">
-          <pre class="integration-code"><code>services.AddTokenIDPAuthentication();</code></pre>
+    <section class="cta-section">
+      <div class="container cta-inner">
+        <div class="section-label cta-label">// get started</div>
+        <h2>Start Building Secure<br><span>Applications Today</span></h2>
+        <p>Deploy in minutes. Scale without limits. Own your identity infrastructure.</p>
+        <div class="cta-btns">
+          <a href="docs/getting-started/" class="btn-primary-inv">Get Started Free</a>
+          <a href="contact/" class="btn-ghost-inv">Schedule a Demo &rarr;</a>
         </div>
       </div>
     </section>
 
-    
-    </main>
-
-    <footer class="footer-section">
-      <div class="footer-wave" aria-hidden="true">
-        <svg viewBox="0 0 1440 160" preserveAspectRatio="none">
-          <path fill="#00A9FF" d="M0,64C120,140,240,150,360,110C480,70,600,0,720,10C840,20,960,110,1080,130C1200,150,1320,100,1440,40L1440,160L0,160Z"></path>
-        </svg>
-      </div>
-      <div class="footer-content">
-        <div class="container">
-        <div class="footer-grid">
+    <footer>
+      <div class="container">
+        <div class="footer-top">
           <div class="footer-brand">
-            <div class="logo">
-              <span>TokenIDP</span>
-            </div>
-            <p>
-              TokenIDP helps teams manage authentication, authorization, tenant
-              access, and identity operations through a standards-based platform
-              built for modern B2B SaaS applications.
-            </p>
+            <div class="logo">Token<span>IDP</span></div>
+            <p>Modern identity infrastructure for teams who care about security, clarity, and operational ownership.</p>
           </div>
-          <div class="footer-cta">
-            <h3 class="footer-title">Start Building Secure Applications Today</h3>
-            <div class="footer-cta-actions">
-              <a class="footer-cta-btn footer-cta-btn-primary" href="docs/getting-started/">Get Started</a>
-              <a class="footer-cta-btn footer-cta-btn-secondary" href="contact/">Schedule a Demo</a>
-            </div>
+          <div class="footer-col">
+            <h5>Product</h5>
+            <ul>
+              <li><a href="./#features">Features</a></li>
+              <li><a href="usecases/b2b-saas/">Use Cases</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Developers</h5>
+            <ul>
+              <li><a href="docs/">Documentation</a></li>
+              <li><a href="docs/reference/">API Reference</a></li>
+              <li><a href="docs/how-to/react-sdk/">SDKs</a></li>
+              <li><a href="https://github.com/naeem-engr/IDP-Web" target="_blank" rel="noreferrer">GitHub</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Company</h5>
+            <ul>
+              <li><a href="blogs/">Blog</a></li>
+              <li><a href="contact/">Contact</a></li>
+            </ul>
           </div>
         </div>
-        <div class="footer-bottom">
-          &copy; 2026 TokenIDP | Built with security, privacy, and scalability in mind.
-        </div>
+        <div class="footer-bottom-simple">
+          <span>&copy; 2026 TokenIDP. All rights reserved.</span>
         </div>
       </div>
     </footer>
-    <script>
-document.querySelectorAll("[data-carousel]").forEach((carousel) => {
-  const track = carousel.querySelector(".admin-carousel-track");
-  const slides = Array.from(carousel.querySelectorAll(".admin-slide"));
-  const dots = Array.from(carousel.querySelectorAll(".carousel-dot"));
-  const prev = carousel.querySelector("[data-carousel-prev]");
-  const next = carousel.querySelector("[data-carousel-next]");
-  let index = 0;
-  let autoplayId = null;
-
-  if (!slides.length || !track) {
-    return;
-  }
-
-  const show = (nextIndex) => {
-    index = (nextIndex + slides.length) % slides.length;
-    track.style.transform = `translateX(-${index * 100}%)`;
-
-    dots.forEach((dot, dotIndex) => {
-      const active = dotIndex === index;
-      dot.classList.toggle("is-active", active);
-      dot.setAttribute("aria-current", active ? "true" : "false");
-    });
-  };
-
-  const stopAutoplay = () => {
-    if (autoplayId !== null) {
-      clearInterval(autoplayId);
-      autoplayId = null;
-    }
-  };
-
-  const startAutoplay = () => {
-    stopAutoplay();
-    autoplayId = setInterval(() => show(index + 1), 5500);
-  };
-
-  prev?.addEventListener("click", () => {
-    show(index - 1);
-    startAutoplay();
-  });
-
-  next?.addEventListener("click", () => {
-    show(index + 1);
-    startAutoplay();
-  });
-
-  dots.forEach((dot, dotIndex) => {
-    dot.addEventListener("click", () => {
-      show(dotIndex);
-      startAutoplay();
-    });
-  });
-
-  carousel.addEventListener("mouseenter", stopAutoplay);
-  carousel.addEventListener("mouseleave", startAutoplay);
-  carousel.addEventListener("focusin", stopAutoplay);
-  carousel.addEventListener("focusout", startAutoplay);
-
-  show(0);
-  startAutoplay();
-});
-    </script>
     <script>
 document
   .querySelectorAll("a, button, summary, [role='button']")
