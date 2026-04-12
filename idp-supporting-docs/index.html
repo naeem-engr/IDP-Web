@@ -16,13 +16,14 @@
   </head>
   <body class="landing-page">
 
-    <nav>
-      <div class="container">
-        <a class="logo" href="./" aria-label="TokenIDP home">
+    <nav class="top-nav">
+      <div class="nav-inner">
+        <a class="brand" href="./" aria-label="TokenIDP home">
           <img src="assets/logos/TokenIDP.svg" alt="TokenIDP" />
         </a>
-        <ul>
-          <li class="usecases-dropdown">
+        <div class="nav-links">
+          <a href="./">Home</a>
+          <div class="usecases-dropdown">
             <button
               class="usecases-trigger"
               type="button"
@@ -37,14 +38,15 @@
               <a href="usecases/api-platform-builders/">API Platform Builders</a>
               <a href="usecases/enterprise-architecture/">Enterprise Architecture</a>
             </div>
-          </li>
-          <li><a href="docs/">Docs</a></li>
-          <li><a href="blogs/">Blog</a></li>
-          <li><a href="contact/">Contact</a></li>
-          <li><a href="docs/getting-started/" class="nav-cta">Get Started</a></li>
-        </ul>
+          </div>
+          <a href="docs/">Docs</a>
+          <a href="blogs/">Blog</a>
+          <a href="contact/">Contact</a>
+          <a class="nav-cta" href="docs/getting-started/">Get Started</a>
+        </div>
       </div>
     </nav>
+    <main>
 
     <section class="hero">
       <div class="hero-bg-shape"></div>
@@ -286,11 +288,14 @@
       </div>
     </section>
 
-    <footer>
+
+    </main>
+
+    <footer class="landing-template-footer">
       <div class="container">
         <div class="footer-top">
           <div class="footer-brand">
-            <div class="logo">Token<span>IDP</span></div>
+            <img src="../../assets/logos/TokenIDP.svg" alt="TokenIDP" width="140">
             <p>Modern identity infrastructure for teams who care about security, clarity, and operational ownership.</p>
           </div>
           <div class="footer-col">
@@ -329,3 +334,4 @@ document
     </script>
   </body>
 </html>
+

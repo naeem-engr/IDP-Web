@@ -94,43 +94,50 @@ function renderNav(page) {
 }
 
 function renderFooter(page) {
-  const getStartedHref = relativePagePath(
-    page.outputPath,
-    "docs/getting-started/index.html",
-  );
+  const homeHref = relativePagePath(page.outputPath, "index.html");
+  const docsHref = relativePagePath(page.outputPath, "docs/index.html");
+  const blogsHref = relativePagePath(page.outputPath, "blogs/index.html");
   const contactHref = relativePagePath(page.outputPath, "contact/index.html");
+  const getStartedHref = relativePagePath(page.outputPath, "docs/getting-started/index.html");
+  const usecaseSaasHref = relativePagePath(page.outputPath, "usecases/b2b-saas/index.html");
+  const apiReferenceHref = relativePagePath(page.outputPath, "docs/reference/index.html");
+  const sdkHref = relativePagePath(page.outputPath, "docs/how-to/react-sdk/index.html");
+  const featuresHref = `${homeHref}#features`;
 
   return `
-    <footer class="footer-section">
-      <div class="footer-wave" aria-hidden="true">
-        <svg viewBox="0 0 1440 160" preserveAspectRatio="none">
-          <path fill="#00A9FF" d="M0,64C120,140,240,150,360,110C480,70,600,0,720,10C840,20,960,110,1080,130C1200,150,1320,100,1440,40L1440,160L0,160Z"></path>
-        </svg>
-      </div>
-      <div class="footer-content">
-        <div class="container">
-        <div class="footer-grid">
+    <footer class="landing-template-footer">
+      <div class="container">
+        <div class="footer-top">
           <div class="footer-brand">
-            <div class="logo">
-              <span>TokenIDP</span>
-            </div>
-            <p>
-              TokenIDP helps teams manage authentication, authorization, tenant
-              access, and identity operations through a standards-based platform
-              built for modern B2B SaaS applications.
-            </p>
+            <div class="logo">Token<span>IDP</span></div>
+            <p>Modern identity infrastructure for teams who care about security, clarity, and operational ownership.</p>
           </div>
-          <div class="footer-cta">
-            <h3 class="footer-title">Start Building Secure Applications Today</h3>
-            <div class="footer-cta-actions">
-              <a class="footer-cta-btn footer-cta-btn-primary" href="${getStartedHref}">Get Started</a>
-              <a class="footer-cta-btn footer-cta-btn-secondary" href="${contactHref}">Schedule a Demo</a>
-            </div>
+          <div class="footer-col">
+            <h5>Product</h5>
+            <ul>
+              <li><a href="${featuresHref}">Features</a></li>
+              <li><a href="${usecaseSaasHref}">Use Cases</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Developers</h5>
+            <ul>
+              <li><a href="${docsHref}">Documentation</a></li>
+              <li><a href="${apiReferenceHref}">API Reference</a></li>
+              <li><a href="${sdkHref}">SDKs</a></li>
+              <li><a href="https://github.com/naeem-engr/IDP-Web" target="_blank" rel="noreferrer">GitHub</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Company</h5>
+            <ul>
+              <li><a href="${blogsHref}">Blog</a></li>
+              <li><a href="${contactHref}">Contact</a></li>
+            </ul>
           </div>
         </div>
-        <div class="footer-bottom">
-          &copy; 2026 TokenIDP | Built with security, privacy, and scalability in mind.
-        </div>
+        <div class="footer-bottom-simple">
+          <span>&copy; 2026 TokenIDP. All rights reserved.</span>
         </div>
       </div>
     </footer>`;
