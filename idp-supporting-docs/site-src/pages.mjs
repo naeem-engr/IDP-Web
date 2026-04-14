@@ -2084,7 +2084,7 @@ function renderHomeSections(helpers) {
       <div class="container">
         <div class="stat-item"><div class="stat-num">80%+</div><div class="stat-label">Faster auth flow setup</div></div>
         <div class="stat-item"><div class="stat-num">3 min</div><div class="stat-label">Avg. integration time</div></div>
-        <div class="stat-item"><div class="stat-num">99.9%</div><div class="stat-label">Uptime SLA</div></div>
+        <div class="stat-item"><div class="stat-num">99.9%+</div><div class="stat-label">Availability Target</div></div>
         <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Infrastructure ownership</div></div>
       </div>
     </div>
