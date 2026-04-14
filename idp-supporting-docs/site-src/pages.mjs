@@ -111,6 +111,17 @@ ${ICONS[card.icon]}
         </div>`;
 }
 
+function renderUseCaseFeatureCard(card) {
+  return `
+            <div class="mini-card usecase-mini-card">
+              <span class="mini-card-icon" aria-hidden="true">
+${ICONS[card.icon]}
+              </span>
+              <h4>${card.title}</h4>
+              <p>${card.description}</p>
+            </div>`;
+}
+
 function renderPlaceholderGraphic(label, modifierClass = "") {
   return `
         <div class="placeholder-figure${modifierClass ? ` ${modifierClass}` : ""}" aria-hidden="true">
@@ -219,24 +230,26 @@ function renderUseCasePage(useCase, helpers) {
   return `
     ${renderSharedLandingHero(helpers)}
 
-    <section class="container">
-      <h2>${useCase.pageTitle}</h2>
-      <p class="section-intro">
-        ${useCase.intro}
-      </p>
-
-      <div class="grid feature-grid usecase-grid">
-${useCase.features.map(renderFeatureCard).join("\n")}
+    <section class="why-section usecase-overview-section">
+      <div class="container">
+        <div class="two-col">
+          <div class="usecase-overview-copy">
+            <div class="section-label">// use case</div>
+            <h2>${useCase.pageTitle}</h2>
+            <p class="why-copy">${useCase.intro}</p>
+          </div>
+          <div class="mini-grid usecase-mini-grid">
+${useCase.features.map(renderUseCaseFeatureCard).join("\n")}
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="origin-section">
-      <div class="origin-card">
-        <span class="origin-kicker">${useCase.support.kicker}</span>
+    <section class="cta-section usecase-support-section">
+      <div class="container cta-inner usecase-support-inner">
+        <div class="section-label cta-label">${useCase.support.kicker}</div>
         <h2>${useCase.support.title}</h2>
-        <p>
-          ${useCase.support.description}
-        </p>
+        <p>${useCase.support.description}</p>
       </div>
     </section>`;
 }
@@ -351,8 +364,9 @@ function renderBlogsIndex(helpers) {
   return `
     ${renderSharedLandingHero(helpers)}
 
-    <section class="container">
-      <div class="grid blog-grid">
+    <section class="why-section blog-list-section">
+      <div class="container">
+        <div class="grid blog-grid">
 ${cards
   .map(
     (card) => `
@@ -374,6 +388,7 @@ ${cards
         </article>`,
   )
   .join("\n")}
+        </div>
       </div>
     </section>`;
 }
@@ -871,8 +886,9 @@ ${content}
 
 function renderContactSection() {
   return `
-    <section class="container contact-section">
-      <div class="contact-layout">
+    <section class="why-section contact-section-shell">
+      <div class="container contact-section">
+        <div class="contact-layout">
         <div class="contact-copy">
           <h2>Contact with us</h2>
           <p>
@@ -927,6 +943,7 @@ function renderContactSection() {
             <button class="contact-submit" type="submit">Send Message</button>
           </form>
         </div>
+      </div>
       </div>
     </section>`;
 }

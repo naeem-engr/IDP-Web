@@ -4269,9 +4269,27 @@ section {
 }
 
 .landing-page .mini-card-icon {
-  font-size: 22px;
-  margin-bottom: 10px;
-  display: block;
+  width: 42px;
+  height: 42px;
+  background: var(--blue-light);
+  border: 1px solid var(--blue-border);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  font-size: 18px;
+  color: var(--blue);
+}
+
+.landing-page .mini-card-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .landing-page .mini-card h4 {
@@ -4286,6 +4304,97 @@ section {
   font-size: 12px;
   color: var(--muted);
   line-height: 1.5;
+}
+
+.landing-page.usecase-page .usecase-overview-section h2,
+.landing-page.usecase-page .usecase-overview-section .why-copy {
+  text-align: left;
+}
+
+.landing-page.usecase-page .usecase-overview-copy {
+  align-self: start;
+}
+
+.landing-page.usecase-page .usecase-mini-grid {
+  margin-top: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  align-content: start;
+  align-items: stretch;
+}
+
+.landing-page.usecase-page .usecase-mini-card {
+  min-height: 0;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.landing-page.usecase-page .usecase-mini-card .mini-card-icon {
+  flex-shrink: 0;
+}
+
+.landing-page.usecase-page .usecase-mini-card h4 {
+  margin: 0 0 5px;
+}
+
+.landing-page.usecase-page .usecase-mini-card p {
+  margin: 0;
+}
+
+.landing-page.usecase-page .usecase-support-section {
+  text-align: center;
+}
+
+.landing-page.usecase-page .usecase-support-inner {
+  max-width: 960px;
+}
+
+.landing-page.blogs-page .blog-list-section {
+  background: var(--bg);
+}
+
+.landing-page.blogs-page .blog-card h3 {
+  font-family: "Syne", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: var(--ink);
+}
+
+.landing-page.blogs-page .blog-card p {
+  color: var(--muted);
+}
+
+.landing-page.contact-page .contact-section-shell {
+  background: var(--bg);
+}
+
+.landing-page.contact-page .contact-section {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.landing-page.contact-page .contact-layout {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+
+.landing-page.contact-page .contact-copy h2 {
+  font-family: "Syne", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: var(--ink);
+}
+
+.landing-page.contact-page .contact-copy > p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.75;
 }
 
 .landing-page .features-grid {
