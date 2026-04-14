@@ -3761,14 +3761,9 @@ h2 {
 }
 
 .landing-template-footer .footer-brand .logo {
-  font-family: "Syne", sans-serif;
-  font-weight: 800;
-  font-size: 21px;
-  letter-spacing: -0.5px;
-}
-
-.landing-template-footer .footer-brand .logo span {
-  color: var(--blue);
+  width: 140px;
+  height: auto;
+  display: block;
 }
 
 .landing-template-footer .footer-col h5 {
@@ -4197,6 +4192,13 @@ section {
   font-size: 13px;
   color: var(--muted);
   margin-top: 2px;
+}
+
+.landing-page .arch-box-note {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--muted);
 }
 
 .landing-page .section-label {

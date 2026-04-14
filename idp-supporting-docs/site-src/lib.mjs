@@ -103,13 +103,14 @@ function renderFooter(page) {
   const apiReferenceHref = relativePagePath(page.outputPath, "docs/reference/index.html");
   const sdkHref = relativePagePath(page.outputPath, "docs/how-to/react-sdk/index.html");
   const featuresHref = `${homeHref}#features`;
+  const logoHref = relativePath(page.outputPath, "assets/logos/TokenIDP.svg");
 
   return `
     <footer class="landing-template-footer">
       <div class="container">
         <div class="footer-top">
           <div class="footer-brand">
-            <div class="logo">Token<span>IDP</span></div>
+            <img class="logo" src="${logoHref}" alt="TokenIDP" />
             <p>Modern identity infrastructure for teams who care about security, clarity, and operational ownership.</p>
           </div>
           <div class="footer-col">

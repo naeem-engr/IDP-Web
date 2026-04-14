@@ -48,12 +48,12 @@
     </nav>
     <main>
 
+    
     <section class="hero">
       <div class="hero-bg-shape"></div>
       <div class="hero-grid-lines"></div>
       <div class="container">
         <div class="hero-content">
-          <div class="hero-badge">OAuth2 &middot; OpenID Connect &middot; RBAC</div>
           <h1>One Identity<br><span style="white-space:nowrap">for <span class="accent">Every App</span></span><br>&amp; Service</h1>
           <p class="hero-sub">Self-hosted identity infrastructure built from real-world experience. Simple to configure, deploy, and operate at any scale.</p>
           <div class="tech-tags">
@@ -94,6 +94,7 @@
         <div class="stat-item"><div class="stat-num">80%+</div><div class="stat-label">Faster auth flow setup</div></div>
         <div class="stat-item"><div class="stat-num">3 min</div><div class="stat-label">Avg. integration time</div></div>
         <div class="stat-item"><div class="stat-num">99.9%</div><div class="stat-label">Uptime SLA</div></div>
+        <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Infrastructure ownership</div></div>
       </div>
     </div>
 
@@ -176,7 +177,7 @@
           <div class="arch-col">
             <div class="arch-box highlight"><div class="box-label">User Applications</div>Web App</div>
             <div class="arch-box"><div class="box-label">User Applications</div>Mobile App</div>
-            <div class="arch-box"><div class="box-label">User Applications</div>CLI / API Client</div>
+            <div class="arch-box"><div class="box-label">User Applications</div>CLI / API Client / Backend Services</div>
           </div>
           <div class="arch-arrow">&rarr;</div>
           <div class="arch-center">
@@ -187,7 +188,7 @@
           <div class="arch-col">
             <div class="arch-box"><div class="box-label">Protected APIs</div>Resource Server</div>
             <div class="arch-box"><div class="box-label">External</div>Google &middot; GitHub</div>
-            <div class="arch-box"><div class="box-label">External</div>LDAP / SAML</div>
+            <div class="arch-box"><div class="box-label">External</div>LDAP / SAML<br><small class="arch-box-note">Enterprise connectors coming soon</small></div>
           </div>
         </div>
       </div>
@@ -251,9 +252,10 @@
           <div>
             <div class="section-label">// developer experience</div>
             <h2>Integrate in Minutes</h2>
-            <p class="section-intro">Get started with existing framework integrations, the Node SDK, and discovery-based configuration. No building authentication plumbing from scratch.</p>
+            <p class="section-intro">Get started with React and Angular SDKs, plus discovery-based configuration, without building authentication plumbing from scratch.</p>
             <div class="sdk-pills">
-              <span class="sdk-pill">Node.js SDK</span>
+              <span class="sdk-pill">React SDK</span>
+              <span class="sdk-pill">Angular SDK</span>
               <span class="sdk-pill">REST API</span>
               <span class="sdk-pill">Docker ready</span>
               <span class="sdk-pill">OAuth Discovery</span>
@@ -261,16 +263,14 @@
             </div>
           </div>
           <div class="code-block">
-            <span class="cm">// Initialize TokenIDP client</span><br>
-            <span class="kw">import</span> <span style="color:#f8f8f2">{ TokenIDP }</span> <span class="kw">from</span> <span class="str">'@tokenidp/node'</span>;<br><br>
-            <span class="kw">const</span> <span style="color:#f8f8f2">idp</span> = <span class="kw">new</span> <span class="fn">TokenIDP</span>({<br>
-            &nbsp;&nbsp;issuer: <span class="str">'https://auth.example.com'</span>,<br>
-            &nbsp;&nbsp;clientId: <span class="str">process.env.CLIENT_ID</span>,<br>
-            &nbsp;&nbsp;clientSecret: <span class="str">process.env.CLIENT_SECRET</span>,<br>
-            });<br><br>
-            <span class="cm">// Validate incoming token</span><br>
-            <span class="kw">const</span> <span style="color:#f8f8f2">payload</span> = <span class="kw">await</span> idp.<span class="fn">verify</span>(token);<br>
-            <span class="cm">// -&gt; { sub, roles, tenant, exp }</span>
+            <span class="cm">// Wrap your app with the React SDK</span><br>
+            <span class="kw">import</span> <span style="color:#f8f8f2">{ TokenIDPProvider }</span> <span class="kw">from</span> <span class="str">'@tokenidp/react'</span>;<br><br>
+            <span class="kw">export default function</span> <span class="fn">App</span>() {<br>
+            &nbsp;&nbsp;<span class="kw">return</span> (<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="fn">TokenIDPProvider</span> issuer=<span class="str">"https://auth.example.com"</span> clientId=<span class="str">"web-app"</span> /&gt;<br>
+            &nbsp;&nbsp;);<br>
+            }<br><br>
+            <span class="cm">// Angular SDK follows the same issuer and client configuration model</span>
           </div>
         </div>
       </div>
@@ -295,7 +295,7 @@
       <div class="container">
         <div class="footer-top">
           <div class="footer-brand">
-            <img src="../../assets/logos/TokenIDP.svg" alt="TokenIDP" width="140">
+            <img class="logo" src="assets/logos/TokenIDP.svg" alt="TokenIDP" />
             <p>Modern identity infrastructure for teams who care about security, clarity, and operational ownership.</p>
           </div>
           <div class="footer-col">
@@ -334,4 +334,3 @@ document
     </script>
   </body>
 </html>
-

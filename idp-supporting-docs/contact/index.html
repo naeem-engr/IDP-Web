@@ -14,7 +14,7 @@
     />
     <link rel="stylesheet" href="../assets/styles/site.css" />
   </head>
-  <body class="blog-article-page contact-page">
+  <body class="landing-page blog-article-page contact-page">
 
     <nav class="top-nav">
       <div class="nav-inner">
@@ -49,16 +49,45 @@
     <main>
 
     
-    <header class="main-header">
-      <div class="hero-content">
-        <h1>Contact Us</h1>
-        <p>Reach out about product fit, deployment questions, or a short demo.</p>
-        <div class="hero-actions">
-          <a class="btn" href="../docs/getting-started/">Get Started</a>
-          
+    <section class="hero">
+      <div class="hero-bg-shape"></div>
+      <div class="hero-grid-lines"></div>
+      <div class="container">
+        <div class="hero-content">
+          <h1>One Identity<br><span style="white-space:nowrap">for <span class="accent">Every App</span></span><br>&amp; Service</h1>
+          <p class="hero-sub">Self-hosted identity infrastructure built from real-world experience. Simple to configure, deploy, and operate at any scale.</p>
+          <div class="tech-tags">
+            <span class="tag">OAuth2</span>
+            <span class="tag">OpenID Connect</span>
+            <span class="tag">RBAC</span>
+            <span class="tag">User Management</span>
+            <span class="tag">MFA</span>
+          </div>
+          <div class="hero-btns">
+            <a href="../docs/getting-started/" class="btn-primary">Get Started Free</a>
+            <a href="./" class="btn-ghost">Schedule a Demo &rarr;</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="orbit-ring">
+            <div class="ring ring1"></div>
+            <div class="ring ring2"></div>
+            <div class="ring ring3"></div>
+            <div class="center-node">
+              <svg width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="18" cy="14" r="6" stroke="#0062cc" stroke-width="2"></circle>
+                <path d="M6 30c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#0062cc" stroke-width="2" stroke-linecap="round"></path>
+                <circle cx="18" cy="14" r="2" fill="#0062cc"></circle>
+              </svg>
+            </div>
+            <div class="orbit-dot" style="top:7%;left:50%;transform:translateX(-50%)">&#128274;</div>
+            <div class="orbit-dot" style="bottom:7%;left:50%;transform:translateX(-50%)">&#127963;&#65039;</div>
+            <div class="orbit-dot" style="left:3%;top:50%;transform:translateY(-50%)">&#128241;</div>
+            <div class="orbit-dot" style="right:3%;top:50%;transform:translateY(-50%)">&#9729;&#65039;</div>
+          </div>
         </div>
       </div>
-    </header>
+    </section>
 
     <section class="container contact-section">
       <div class="contact-layout">
@@ -124,7 +153,7 @@
       <div class="container">
         <div class="footer-top">
           <div class="footer-brand">
-            <img src="../../assets/logos/TokenIDP.svg" alt="TokenIDP" width="140">
+            <img class="logo" src="../assets/logos/TokenIDP.svg" alt="TokenIDP" />
             <p>Modern identity infrastructure for teams who care about security, clarity, and operational ownership.</p>
           </div>
           <div class="footer-col">
@@ -163,4 +192,3 @@ document
     </script>
   </body>
 </html>
-

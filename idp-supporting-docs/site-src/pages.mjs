@@ -151,6 +151,51 @@ function renderCarouselArrow(direction) {
             </svg>`;
 }
 
+function renderSharedLandingHero(helpers) {
+  const contactHref = helpers.relativePagePath(ROUTES.contact);
+  const getStartedHref = helpers.relativePagePath("docs/getting-started/index.html");
+
+  return `
+    <section class="hero">
+      <div class="hero-bg-shape"></div>
+      <div class="hero-grid-lines"></div>
+      <div class="container">
+        <div class="hero-content">
+          <h1>One Identity<br><span style="white-space:nowrap">for <span class="accent">Every App</span></span><br>&amp; Service</h1>
+          <p class="hero-sub">Self-hosted identity infrastructure built from real-world experience. Simple to configure, deploy, and operate at any scale.</p>
+          <div class="tech-tags">
+            <span class="tag">OAuth2</span>
+            <span class="tag">OpenID Connect</span>
+            <span class="tag">RBAC</span>
+            <span class="tag">User Management</span>
+            <span class="tag">MFA</span>
+          </div>
+          <div class="hero-btns">
+            <a href="${getStartedHref}" class="btn-primary">Get Started Free</a>
+            <a href="${contactHref}" class="btn-ghost">Schedule a Demo &rarr;</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="orbit-ring">
+            <div class="ring ring1"></div>
+            <div class="ring ring2"></div>
+            <div class="ring ring3"></div>
+            <div class="center-node">
+              <svg width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="18" cy="14" r="6" stroke="#0062cc" stroke-width="2"></circle>
+                <path d="M6 30c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#0062cc" stroke-width="2" stroke-linecap="round"></path>
+                <circle cx="18" cy="14" r="2" fill="#0062cc"></circle>
+              </svg>
+            </div>
+            <div class="orbit-dot" style="top:7%;left:50%;transform:translateX(-50%)">&#128274;</div>
+            <div class="orbit-dot" style="bottom:7%;left:50%;transform:translateX(-50%)">&#127963;&#65039;</div>
+            <div class="orbit-dot" style="left:3%;top:50%;transform:translateY(-50%)">&#128241;</div>
+            <div class="orbit-dot" style="right:3%;top:50%;transform:translateY(-50%)">&#9729;&#65039;</div>
+          </div>
+        </div>
+      </div>
+    </section>`;
+}
 
 function renderCtaPageHeader(title, subtitle, helpers, options = {}) {
   const contactHref = helpers.relativePagePath(ROUTES.contact);
@@ -172,7 +217,7 @@ function renderCtaPageHeader(title, subtitle, helpers, options = {}) {
 
 function renderUseCasePage(useCase, helpers) {
   return `
-    ${renderCtaPageHeader(useCase.heroTitle, useCase.heroSubtitle, helpers)}
+    ${renderSharedLandingHero(helpers)}
 
     <section class="container">
       <h2>${useCase.pageTitle}</h2>
@@ -233,6 +278,8 @@ function renderBlogArticle(article, helpers) {
     .join("\n");
 
   return `
+    ${renderSharedLandingHero(helpers)}
+
     <section class="container blog-hero">
       <span class="blog-category">${article.category}</span>
       <h1>${article.heroTitle}</h1>
@@ -302,11 +349,7 @@ function renderBlogsIndex(helpers) {
   ];
 
   return `
-    ${renderCtaPageHeader(
-      "Blogs",
-      "Insights on OAuth2, identity architecture, security hardening, and SaaS engineering patterns teams can apply in production.",
-      helpers,
-    )}
+    ${renderSharedLandingHero(helpers)}
 
     <section class="container">
       <div class="grid blog-grid">
@@ -890,12 +933,7 @@ function renderContactSection() {
 
 function renderContactPage(helpers) {
   return `
-    ${renderCtaPageHeader(
-      "Contact Us",
-      "Reach out about product fit, deployment questions, or a short demo.",
-      helpers,
-      { showScheduleDemo: false },
-    )}
+    ${renderSharedLandingHero(helpers)}
 ${renderContactSection()}`;
 }
 
@@ -1178,7 +1216,7 @@ const useCases = [
   {
     outputPath: ROUTES.usecaseSaas,
     title: "B2B SaaS Applications | TokenIDP",
-    bodyClass: "usecase-page",
+    bodyClass: "landing-page usecase-page",
     activeNav: null,
     render: (helpers) =>
       renderUseCasePage({
@@ -1225,7 +1263,7 @@ const useCases = [
   {
     outputPath: ROUTES.usecaseCompliance,
     title: "Compliance-Driven Teams | TokenIDP",
-    bodyClass: "usecase-page",
+    bodyClass: "landing-page usecase-page",
     activeNav: null,
     render: (helpers) =>
       renderUseCasePage({
@@ -1272,7 +1310,7 @@ const useCases = [
   {
     outputPath: ROUTES.usecaseApi,
     title: "API Platform Builders | TokenIDP",
-    bodyClass: "usecase-page",
+    bodyClass: "landing-page usecase-page",
     activeNav: null,
     render: (helpers) =>
       renderUseCasePage({
@@ -1319,7 +1357,7 @@ const useCases = [
   {
     outputPath: ROUTES.usecaseEnterprise,
     title: "Enterprise Architecture | TokenIDP",
-    bodyClass: "usecase-page",
+    bodyClass: "landing-page usecase-page",
     activeNav: null,
     render: (helpers) =>
       renderUseCasePage({
@@ -1369,7 +1407,7 @@ const blogArticles = [
   {
     outputPath: ROUTES.blogMultiTenant,
     title: "Designing Multi-Tenant Identity for B2B SaaS | TokenIDP",
-    bodyClass: "blog-article-page",
+    bodyClass: "landing-page blog-article-page",
     activeNav: "blog",
     render: (helpers) =>
       renderBlogArticle(
@@ -1439,7 +1477,7 @@ const blogArticles = [
   {
     outputPath: ROUTES.blogOauth2,
     title: "OAuth2 Authorization Code Flow Explained | TokenIDP",
-    bodyClass: "blog-article-page",
+    bodyClass: "landing-page blog-article-page",
     activeNav: "blog",
     render: (helpers) =>
       renderBlogArticle(
@@ -1500,7 +1538,7 @@ const blogArticles = [
   {
     outputPath: ROUTES.blogRbac,
     title: "RBAC vs ABAC in Enterprise Applications | TokenIDP",
-    bodyClass: "blog-article-page",
+    bodyClass: "landing-page blog-article-page",
     activeNav: "blog",
     render: (helpers) =>
       renderBlogArticle(
@@ -1559,7 +1597,7 @@ const blogArticles = [
   {
     outputPath: ROUTES.blogMfa,
     title: "Implementing MFA in Identity Platforms | TokenIDP",
-    bodyClass: "blog-article-page",
+    bodyClass: "landing-page blog-article-page",
     activeNav: "blog",
     render: (helpers) =>
       renderBlogArticle(
@@ -1619,7 +1657,7 @@ const blogArticles = [
   {
     outputPath: ROUTES.blogTokens,
     title: "Secure Token Handling in APIs | TokenIDP",
-    bodyClass: "blog-article-page",
+    bodyClass: "landing-page blog-article-page",
     activeNav: "blog",
     render: (helpers) =>
       renderBlogArticle(
@@ -2023,52 +2061,14 @@ function renderHomeSections(helpers) {
   const getStartedHref = helpers.relativePagePath("docs/getting-started/index.html");
 
   return `
-    <section class="hero">
-      <div class="hero-bg-shape"></div>
-      <div class="hero-grid-lines"></div>
-      <div class="container">
-        <div class="hero-content">
-          <div class="hero-badge">OAuth2 &middot; OpenID Connect &middot; RBAC</div>
-          <h1>One Identity<br><span style="white-space:nowrap">for <span class="accent">Every App</span></span><br>&amp; Service</h1>
-          <p class="hero-sub">Self-hosted identity infrastructure built from real-world experience. Simple to configure, deploy, and operate at any scale.</p>
-          <div class="tech-tags">
-            <span class="tag">OAuth2</span>
-            <span class="tag">OpenID Connect</span>
-            <span class="tag">RBAC</span>
-            <span class="tag">User Management</span>
-            <span class="tag">MFA</span>
-          </div>
-          <div class="hero-btns">
-            <a href="${getStartedHref}" class="btn-primary">Get Started Free</a>
-            <a href="${contactHref}" class="btn-ghost">Schedule a Demo &rarr;</a>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div class="orbit-ring">
-            <div class="ring ring1"></div>
-            <div class="ring ring2"></div>
-            <div class="ring ring3"></div>
-            <div class="center-node">
-              <svg width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="18" cy="14" r="6" stroke="#0062cc" stroke-width="2"></circle>
-                <path d="M6 30c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#0062cc" stroke-width="2" stroke-linecap="round"></path>
-                <circle cx="18" cy="14" r="2" fill="#0062cc"></circle>
-              </svg>
-            </div>
-            <div class="orbit-dot" style="top:7%;left:50%;transform:translateX(-50%)">&#128274;</div>
-            <div class="orbit-dot" style="bottom:7%;left:50%;transform:translateX(-50%)">&#127963;&#65039;</div>
-            <div class="orbit-dot" style="left:3%;top:50%;transform:translateY(-50%)">&#128241;</div>
-            <div class="orbit-dot" style="right:3%;top:50%;transform:translateY(-50%)">&#9729;&#65039;</div>
-          </div>
-        </div>
-      </div>
-    </section>
+    ${renderSharedLandingHero(helpers)}
 
     <div class="stats-bar">
       <div class="container">
         <div class="stat-item"><div class="stat-num">80%+</div><div class="stat-label">Faster auth flow setup</div></div>
         <div class="stat-item"><div class="stat-num">3 min</div><div class="stat-label">Avg. integration time</div></div>
         <div class="stat-item"><div class="stat-num">99.9%</div><div class="stat-label">Uptime SLA</div></div>
+        <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Infrastructure ownership</div></div>
       </div>
     </div>
 
@@ -2151,7 +2151,7 @@ function renderHomeSections(helpers) {
           <div class="arch-col">
             <div class="arch-box highlight"><div class="box-label">User Applications</div>Web App</div>
             <div class="arch-box"><div class="box-label">User Applications</div>Mobile App</div>
-            <div class="arch-box"><div class="box-label">User Applications</div>CLI / API Client</div>
+            <div class="arch-box"><div class="box-label">User Applications</div>CLI / API Client / Backend Services</div>
           </div>
           <div class="arch-arrow">&rarr;</div>
           <div class="arch-center">
@@ -2162,7 +2162,7 @@ function renderHomeSections(helpers) {
           <div class="arch-col">
             <div class="arch-box"><div class="box-label">Protected APIs</div>Resource Server</div>
             <div class="arch-box"><div class="box-label">External</div>Google &middot; GitHub</div>
-            <div class="arch-box"><div class="box-label">External</div>LDAP / SAML</div>
+            <div class="arch-box"><div class="box-label">External</div>LDAP / SAML<br><small class="arch-box-note">Enterprise connectors coming soon</small></div>
           </div>
         </div>
       </div>
@@ -2226,9 +2226,10 @@ function renderHomeSections(helpers) {
           <div>
             <div class="section-label">// developer experience</div>
             <h2>Integrate in Minutes</h2>
-            <p class="section-intro">Get started with existing framework integrations, the Node SDK, and discovery-based configuration. No building authentication plumbing from scratch.</p>
+            <p class="section-intro">Get started with React and Angular SDKs, plus discovery-based configuration, without building authentication plumbing from scratch.</p>
             <div class="sdk-pills">
-              <span class="sdk-pill">Node.js SDK</span>
+              <span class="sdk-pill">React SDK</span>
+              <span class="sdk-pill">Angular SDK</span>
               <span class="sdk-pill">REST API</span>
               <span class="sdk-pill">Docker ready</span>
               <span class="sdk-pill">OAuth Discovery</span>
@@ -2236,16 +2237,14 @@ function renderHomeSections(helpers) {
             </div>
           </div>
           <div class="code-block">
-            <span class="cm">// Initialize TokenIDP client</span><br>
-            <span class="kw">import</span> <span style="color:#f8f8f2">{ TokenIDP }</span> <span class="kw">from</span> <span class="str">'@tokenidp/node'</span>;<br><br>
-            <span class="kw">const</span> <span style="color:#f8f8f2">idp</span> = <span class="kw">new</span> <span class="fn">TokenIDP</span>({<br>
-            &nbsp;&nbsp;issuer: <span class="str">'https://auth.example.com'</span>,<br>
-            &nbsp;&nbsp;clientId: <span class="str">process.env.CLIENT_ID</span>,<br>
-            &nbsp;&nbsp;clientSecret: <span class="str">process.env.CLIENT_SECRET</span>,<br>
-            });<br><br>
-            <span class="cm">// Validate incoming token</span><br>
-            <span class="kw">const</span> <span style="color:#f8f8f2">payload</span> = <span class="kw">await</span> idp.<span class="fn">verify</span>(token);<br>
-            <span class="cm">// -&gt; { sub, roles, tenant, exp }</span>
+            <span class="cm">// Wrap your app with the React SDK</span><br>
+            <span class="kw">import</span> <span style="color:#f8f8f2">{ TokenIDPProvider }</span> <span class="kw">from</span> <span class="str">'@tokenidp/react'</span>;<br><br>
+            <span class="kw">export default function</span> <span class="fn">App</span>() {<br>
+            &nbsp;&nbsp;<span class="kw">return</span> (<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="fn">TokenIDPProvider</span> issuer=<span class="str">"https://auth.example.com"</span> clientId=<span class="str">"web-app"</span> /&gt;<br>
+            &nbsp;&nbsp;);<br>
+            }<br><br>
+            <span class="cm">// Angular SDK follows the same issuer and client configuration model</span>
           </div>
         </div>
       </div>
@@ -2281,7 +2280,7 @@ export const pages = [
   {
     outputPath: ROUTES.blogs,
     title: "Blog | TokenIDP",
-    bodyClass: "blogs-page",
+    bodyClass: "landing-page blogs-page",
     activeNav: "blog",
     render: renderBlogsIndex,
   },
@@ -2290,7 +2289,7 @@ export const pages = [
   {
     outputPath: ROUTES.contact,
     title: "Contact Us | TokenIDP",
-    bodyClass: "blog-article-page contact-page",
+    bodyClass: "landing-page blog-article-page contact-page",
     activeNav: "contact",
     render: renderContactPage,
   },
